@@ -1,0 +1,118 @@
+[
+  {
+    "type": "Feature",
+    "properties": {
+      "id": 0,
+      "address": "BUDAPEST, , ",
+      "company": {
+        "name": "Rudolf Kalman Óbudai Egyetemért Alapítvány",
+        "link": ""
+      },
+      "city": "BUDAPEST",
+      "type": "(felső)oktatási épület",
+      "link": "",
+      "mainPep": [],
+      "peps": [
+        "",
+        "",
+        ""
+      ],
+      "date": "",
+      "details": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        47.53364891,
+        19.03422438
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": 1,
+      "address": "BUDAPEST, , ",
+      "company": {
+        "name": "Rudolf Kalman Óbudai Egyetemért Alapítvány",
+        "link": ""
+      },
+      "city": "BUDAPEST",
+      "type": "kollégium",
+      "link": "",
+      "mainPep": [],
+      "peps": [
+        "",
+        "",
+        ""
+      ],
+      "date": "",
+      "details": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        47.53343011,
+        19.03320534
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": 2,
+      "address": "BUDAPEST, , ",
+      "company": {
+        "name": "Rudolf Kalman Óbudai Egyetemért Alapítvány",
+        "link": ""
+      },
+      "city": "BUDAPEST",
+      "type": "kollégium",
+      "link": "",
+      "mainPep": [],
+      "peps": [
+        "",
+        "",
+        ""
+      ],
+      "date": "",
+      "details": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        47.5355073,
+        19.03318191
+      ]
+    }
+  },
+  {
+    "type": "Feature",
+    "properties": {
+      "id": 3,
+      "address": "BUDAPEST, , ",
+      "company": {
+        "name": "Rudolf Kalman Óbudai Egyetemért Alapítvány",
+        "link": ""
+      },
+      "city": "BUDAPEST",
+      "type": "(felső)oktatási épület",
+      "link": "",
+      "mainPep": [],
+      "peps": [
+        "",
+        "",
+        ""
+      ],
+      "date": "",
+      "details": ""
+    },
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        47.53332769,
+        19.03781566
+      ]
+    }
+  }
+]
