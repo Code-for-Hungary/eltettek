@@ -44,11 +44,11 @@
 
 .pepList {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .pepList p {
-  margin: 0 0 5px;
+  margin: 0 10px 5px;
 }
 
 .listItem h1 {

@@ -9,22 +9,14 @@ import { MapContext, HotelContext } from '../context';
  * @returns {*|boolean}
  */
 function findProperty(place, phrase) {
-    let foundpeps = [];
-    if (place.mainPeps.length > 0) {
-      foundpeps = place.mainPeps.filter(pep => {
-        return (pep.toLowerCase().includes(phrase) ||
-          removeAccents(pep).includes(phrase));
-      });
-    }
-    const foundPlace = place.name &&
-      (place.name.toLowerCase().includes(phrase) ||
-      removeAccents(place.name).includes(phrase));
-    const foundAddress = place.address &&
-      (place.address.toLowerCase().includes(phrase) ||
-      removeAccents(place.address).includes(phrase));
+    const foundpeps = place.peps.length > 0 ?
+      place.peps.filter(pep => isMatching(pep.name, phrase)) :
+      [];
+    const foundPlace = place.name && isMatching(place.name, phrase);
+    const foundCity = place.city && isMatching(place.city, phrase);
+    const foundCompany = place.company && place.company.name && isMatching(place.company.name, phrase);
 
-
-    return (foundPlace || foundAddress || foundpeps.length > 0);
+    return (foundPlace || foundCity || foundCompany || foundpeps.length > 0);
   }
 
 /**
@@ -35,6 +27,10 @@ function findProperty(place, phrase) {
  */
 function removeAccents(string) {
   return string.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+function isMatching(key, string) {
+  return (key.toLowerCase().includes(string) || removeAccents(key).includes(string));
 }
 
 function Search() {
