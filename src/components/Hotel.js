@@ -5,6 +5,7 @@ import Icon from './Icon.js';
 import {MapContext, HotelContext} from '../context';
 import {getIcon} from "../leaflet-helper.js";
 import orangeIcon from "../assets/markers/orange1.svg";
+import { displayName } from '../utils/helpers';
 
 import styles from '../css/hotel.module.css';
 
@@ -80,9 +81,7 @@ const Hotel = (props) => {
             <div className={styles.hotelRow}>
               <Icon img={hotelIcon} size="small"/>
               <p>Üzemeltető:
-                {company.link ?
-                  <span><a href={company.link} target="_blank" rel="noopener noreferrer">{company.name}</a></span> :
-                  <span>{company.name}</span>}
+                <span>{displayName(company)}</span>
               </p>
             </div>
           )}
@@ -91,11 +90,11 @@ const Hotel = (props) => {
               <Icon img={horseIcon} size="small"/>
               <p>Kapcsolódó személyek:<br/>
                 <div><span className={styles.pep}>
-                  {mainPep} <i>(kuratórium elnöke)</i>
+                  {displayName(mainPep, 'kuratórium elnöke')}
                 </span></div>
                 {restPeps && restPeps.length > 0 && restPeps.map((pep, key) => (
                   <><span key={key} className={styles.pep}>
-                    {pep} <i>(kuratóriumi tag)</i>
+                    {displayName(pep, 'kuratóriumi tag')}
                   </span><br/></>
                 ))}
               </p>

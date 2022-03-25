@@ -1,18 +1,25 @@
-function cleanPersonData(personName) {
-	return personName && personName.trim() ? personName.trim() : [];
+function cleanPersonData({name, link}) {
+	return name && name.trim() ? { name: name.trim(), link } : [];
 }
 
 /**
  * @param {string[]} people
  * @returns {string[]} Without empty ones, and with "!!!"-s removed
  */
- function cleanAllPeps(people) {
-	return people.flatMap(cleanPersonData);
+function cleanAllPeps(people) {
+  return people.flatMap(cleanPersonData);
 }
 
 function parseCoordinates(coordStr) {
   const floatable = coordStr.replace(',', '.')
   return parseFloat(floatable)
+}
+
+function createAddress(city, address, zip) {
+  let result = city;
+  if (address) result = `${result}, ${address}`;
+  if (zip) result = `${result}, ${zip}`;
+  return result;
 }
 
 /**
@@ -21,14 +28,15 @@ function parseCoordinates(coordStr) {
  */
 export function getHotels(csvRowsAsObjects) {
   return csvRowsAsObjects.map((csvRow, index) => {
-    const peps = [
-      csvRow['PEP_1'], csvRow['PEP_2'], csvRow['PEP_3'], csvRow['PEP_4'], csvRow['PEP_5'], 
-    ];
+    const peps = ['PEP_1', 'PEP_2', 'PEP_3', 'PEP_4', 'PEP_5'].map(name => {
+      return { name: csvRow[name], link: csvRow[`${name}_link`] }
+    });
+    
     return {
       type: 'Feature',
       properties: {
         id: index,
-        address: `${csvRow['city']}, ${csvRow['address']}, ${csvRow['zip']}`,
+        address: createAddress(csvRow['city'], csvRow['address'], csvRow['zip']),
         company: {
           name: csvRow['kekva_nev'].trim(), 
           link: csvRow['kekva_link'], 

@@ -16,12 +16,11 @@ const AboutView = (props) => {
           <p>Az <i>Eltették</i> oldalon térképen mutatjuk meg a vagyonkezelő alapítványoknak kijátszott ingatlanvagyont. Mivel az ingatlanok átadásáról a Parlament akkor döntött, amikor mindenki a járvánnyal volt elfoglalva, a magyar lakosság nagy része valószínűleg nem is tudja, hogy az, ami korábban a közös vagyonunk volt, ma már egy magánjogi szereplő által tulajdonolt épület, föld, kastély, múzeum. Azaz formálisan már nem a miénk. Az ingatlanokat a vagyonjuttatásról rendelkező jogszabályokból gyűjtöttük össze, helyrajzi szám alapján.</p>
           </section>
           <section>
-          <h2>Az adatok számokban</h>  
+          <h2>Az adatok számokban</h2>  
           <p></p>
           </section>
-          </section>
           <section>
-          <h2>Köszönet</h>  
+          <h2>Köszönet</h2>  
           <p></p>
           </section>
       </div>

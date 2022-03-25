@@ -3,7 +3,6 @@ import styles from '../css/list.module.css';
 import Icon from './Icon.js';
 
 import closeIcon from '../assets/close-icon.svg';
-import horseIcon from '../assets/horse-icon.svg';
 import pinIcon from '../assets/pin-icon.svg';
 
 import { MapContext } from '../context';
@@ -21,10 +20,9 @@ const ListItem = ({ item }) => {
       </div>
       {peps.length > 0 && (
         <div className={styles.listItemCol}>
-          <Icon img={horseIcon} size="small"/>
-          <div className={styles.peps}>
-            {peps.map((pepName, key) => (
-                <p key={key}>{pepName}</p>
+          <div className={styles.pepList}>
+            {peps.map((pep, key) => (
+                <p key={key}>{pep.name}</p>
             ))}
           </div>
         </div>

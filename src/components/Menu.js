@@ -30,7 +30,7 @@ const Menu = () => {
       </div>}
       <ul className={styles.menulist}>
         <li key="m1">
-          <Link to="/">Térkép</Link>
+          <Link to="/map">Térkép</Link>
         </li>
         <li key="m2">
           <Link to="/about">Mi ez?</Link>
