@@ -21,29 +21,29 @@ import Red from '../assets/markers/red.svg';
 import Yellow1 from '../assets/markers/yellow1.svg';
 import Yellow2 from '../assets/markers/yellow1.svg';
 
-export const markers = [
-    Purple1,
-    Orange1,
-    Orange2,
+const markers =  {
+    Blue1,
+    Blue2,
+    Brown,
     Green1,
     Green2,
     Green3,
-    Red,
-    Orange3,
-    Yellow1,
-    Blue1,
     Green4,
-    Purple2,
-    Pink1,
-    Pink2,
     Green5,
-    Grey,
-    Yellow2,
     Green6,
     Green7,
-    Blue2,
+    Grey,
+    Orange1,
+    Orange2,
+    Orange3,
+    Pink1,
+    Pink2,
+    Purple1,
+    Purple2,
     Purple3,
-    Brown
-]
+    Red,
+    Yellow1,
+    Yellow2,
+}
 
-
+export default markers;

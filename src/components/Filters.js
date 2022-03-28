@@ -2,7 +2,7 @@ import React, { useContext, useCallback, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../css/filters.module.css';
 import Icon from './Icon.js';
-import {colors} from '../css/colors'
+import { colors } from '../utils/colors'
 import closeIcon from '../assets/close-icon.svg';
 
 import { MapContext, HotelContext } from '../context';
@@ -24,7 +24,7 @@ function Filters() {
   const { dispatch, selectedFilters } = useContext(MapContext);
   const { categories } = useContext(HotelContext);
   const defaultCategories = Object.keys(categories);
-  const colorList = Object.values(colors);
+  const colorList = colors.map(color => color.code);
   const close = () => {
     dispatch({ type: 'ToggleFilters', showFilters: false });
   }

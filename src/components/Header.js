@@ -7,7 +7,7 @@ import listIcon from '../assets/menu-icon.svg';
 import { MapContext } from '../context';
 
 const Header = (props) => {
-  const { history, withSearch } = props;
+  const { withSearch } = props;
   const { dispatch } = useContext(MapContext);
   const [showMap, setShowMap] = useState(false)
 

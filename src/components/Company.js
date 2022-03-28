@@ -11,7 +11,6 @@ import Icon from './Icon.js';
 import styles from '../css/hotel.module.css';
 import arrowIcon from '../assets/arrow-icon.svg';
 import hotelIcon from '../assets/hotel-icon.svg';
-import {markers} from '../utils/allMarkers'
 
 
 /**

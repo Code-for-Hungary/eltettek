@@ -3,8 +3,8 @@ import React from "react";
 import Leaflet from "leaflet";
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import styles from "./css/map.module.css";
-import { markers } from './utils/allMarkers';
 import defaultMarker from './assets/markers/green1.svg';
+import { colors } from "./utils/colors";
 
 export function getIcon(iconUrl) {
   return Leaflet.icon({
@@ -41,7 +41,8 @@ export function getMarkerList({
     const [latitude, longitude] = point.geometry.coordinates;
     const companyCode = point.properties.company.code;
     const order = Object.keys(categories).indexOf(companyCode);
-    const MapIcon = getIcon(markers[order]);
+    const { icon } = colors[order]
+    const MapIcon = getIcon(icon);
 
     return (
       <Marker position={[latitude, longitude]} key={index} icon={MapIcon} onClick={() => clickCallback(point)}/>
