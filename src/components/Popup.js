@@ -27,40 +27,43 @@ const Popup = (props) => {
         </div>
         <>
           <h1>{name}</h1>
-          <div className={styles.popupInfo}>
-            {company && (
-              <div className={styles.popupRow}>
-                <span>Üzemeltető</span>
-
-                <div className={styles.company}>
-                  <p><Link to={`/kekva/${company.name}`}>{company.name}</Link></p>
+          <div className={styles.popupRow}>
+            <div className={styles.popupCol}>
+              {company && (
+                <div>
+                  <span>Üzemeltető</span>
+                  <div className={styles.company}>
+                    <p><Link to={`/kekva/${company.name}`}>{company.name}</Link></p>
+                  </div>
                 </div>
-              </div>
-            )}
-            {peps && peps.length > 0 && (
-              <div className={styles.popupRow}>
-                <span>PEP</span>
-                <div className={styles.pep}>
-                  <p>{displayName(mainPep, 'kuratórium elnöke')}</p>
-                  {restPeps && restPeps.length > 0 && restPeps.map((pep, key) => (
-                    <div key={key}>
-                      <p>{displayName(pep, 'kuratóriumi tag')}</p>
-                    </div>
-                  ))}
+              )}
+              {!!link && (<div>
+                <a href={link} target="_blank" rel="noopener noreferrer">
+                  Kapcsolódó cikk
+                </a>
+              </div>)}
+              <div>
+                <span>Cím</span>
+                <div className={styles.popupRow}>
+                  <p>{address}</p>
                 </div>
-              </div>
-            )}
-            <div>
-              <span>Cím</span>
-              <div className={styles.popupRow}>
-                <p>{address}</p>
               </div>
             </div>
-            {!!link && (<div className={styles.popupRow}>
-              <a href={link} target="_blank" rel="noopener noreferrer">
-                Kapcsolódó cikk
-              </a>
-            </div>)}
+            <div className={styles.popupCol}>
+              {peps && peps.length > 0 && (
+                  <>
+                    <span>Személyek</span>
+                    <div className={styles.pep}>
+                      <p>{displayName(mainPep, 'kuratórium elnöke')}</p>
+                      {restPeps && restPeps.length > 0 && restPeps.map((pep, key) => (
+                        <div key={key}>
+                          <p>{displayName(pep, 'kuratóriumi tag')}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </>
+              )}
+            </div>
           </div>
           <Link to={`/ingatlan/${id}`} className={styles.moreButton}>Részletek</Link>
         </>

@@ -8,7 +8,7 @@
   padding: 10px 20px;
   background: #fff;
   z-index: 10000;
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+  border-bottom: 2px solid #3430FC;
   box-sizing: border-box;
 }
 
@@ -99,18 +99,17 @@
   text-transform: uppercase;
 }
 
-.menubutton {
+.button {
   position: absolute;
   top: 50%;
-  left: 20px;
   transform: translateY(-50%);
   cursor: pointer;
 }
 
+.menubutton, .close {
+  left: 40px;
+}
+
 .searchbutton {
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  cursor: pointer;
+  right: 40px;
 }

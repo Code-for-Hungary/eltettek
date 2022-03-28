@@ -8,7 +8,7 @@ import Icon from '../components/Icon';
 import MapComponent from '../components/MapComponent';
 import filterStyles from '../components/Filters.module.css';
 import styles from './Map.module.css';
-import listIcon from '../assets/menu-icon.svg';
+import listIcon from '../assets/list-icon.svg';
 import filterIcon from '../assets/filter-icon.svg';
 import {getMarkerList} from '../leaflet-helper.js';
 
@@ -34,7 +34,6 @@ function MapPage(props) {
     locationRequired,
     map,
     isFilterOn,
-    showFilters,
     showList,
     selectedFilters
   } = useContext(MapContext);
@@ -44,6 +43,7 @@ function MapPage(props) {
   const mapRef = createRef();
   const [types, setTypes ] = useState({})
   const [pointsToShow, setPointsToShow] = useState([]);
+  const [showFilters, setShowFilters] = useState(false);
 
   const calcPoints = useCallback(() => {
     let mapBounds = mapRef.current.leafletElement.getBounds();
@@ -93,8 +93,6 @@ function MapPage(props) {
     dispatch({ type: 'ToggleList', showList: true });
   }, [dispatch, calcPoints]);
 
-  const openFiltersCallback = () => dispatch({ type: 'ToggleFilters', showFilters: true });
-
   const markers = getMarkerList({
     points: visiblePoints,
     selectedPoint,
@@ -123,7 +121,7 @@ function MapPage(props) {
               <Icon img={listIcon} size="small"/>
             </div>
             <div className={`${styles.extraButton} ${styles.filterButton} ${isFilterOn ? styles.filterOn : ''}`}
-              onClick={openFiltersCallback}>
+              onClick={() => setShowFilters((prevState) => !prevState)}>
               <Icon img={filterIcon} size="small"/>
             </div>
           </div>

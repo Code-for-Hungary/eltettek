@@ -1,9 +1,7 @@
 import React, { useContext, useCallback, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Filters.module.css';
-import Icon from './Icon.js';
 import { colors } from '../utils/colors'
-import closeIcon from '../assets/close-icon.svg';
 
 import { MapContext, HotelContext } from '../context';
 
@@ -25,14 +23,11 @@ function Filters() {
   const { categories } = useContext(HotelContext);
   const defaultCategories = Object.keys(categories);
   const colorList = colors.map(color => color.code);
-  const close = () => {
-    dispatch({ type: 'ToggleFilters', showFilters: false });
-  }
 
   const onChange = useCallback((filterCode) => {
     const updatedFilters = selectedFilters.includes(filterCode) ? 
-     selectedFilters.filter(category => category !== filterCode) :
-     [...selectedFilters, filterCode];
+      selectedFilters.filter(category => category !== filterCode) :
+      [...selectedFilters, filterCode];
 
     dispatch({ type: 'SetCategories', selectedFilters: updatedFilters });
     dispatch({
@@ -50,15 +45,12 @@ function Filters() {
   }, [dispatch]);
 
   const isAll = useMemo(() =>
-   selectedFilters.length === defaultCategories.length, 
+    selectedFilters.length === defaultCategories.length, 
   [selectedFilters, defaultCategories])
 
   return (
     <div className={styles.filtersWrapper}>
-      <div className={styles.closeButton} onClick={close}>
-        <Icon img={closeIcon} size="large"/>
-      </div>
-      <h1>Alapítványok</h1>
+      <h2>Alapítványok</h2>
       <div className={styles.filtersList}>
         <div className={styles.buttonRow}>
           <button id='all' className={isAll && styles.active} onClick={onAllClick}>Mutasd mind</button>

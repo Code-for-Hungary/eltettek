@@ -1,33 +1,37 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 
 import Search from './Search';
 import styles from './Header.module.css';
 import Icon from './Icon';
 import listIcon from '../assets/menu-icon.svg';
-import { MapContext } from '../context';
+import closeIcon from '../assets/close-icon.svg';
+import Menu from './Menu';
 
 const Header = (props) => {
   const { withSearch } = props;
-  const { dispatch } = useContext(MapContext);
-  const [showMap, setShowMap] = useState(false)
-
-  const onMenuCallback = () => {
-    dispatch({ type: 'ToggleMenu', showMenu: true })
-  };
+  const [showSearch, setShowSearch] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   const headerHeight = withSearch ? styles.large : styles.small;
 
   return (
     <div className={`${styles.header} ${headerHeight}`}>
-      <div className={styles.menubutton} onClick={onMenuCallback}>
-        <Icon img={listIcon} size="large"/>
-      </div>
+      {!showMenu ? (
+        <div className={`${styles.button} ${styles.menubutton}`} onClick={() => setShowMenu(true)}>
+          <Icon img={listIcon} size="large"/>
+        </div>
+       ) : (
+        <div onClick={() => setShowMenu(false)} className={`${styles.button} ${styles.close}`}>
+          <Icon img={closeIcon} size="large"/>
+        </div>
+      )}
+      {showMenu && <Menu />}
       <div className={styles.headerWrapper}>
         
       </div>
-      {withSearch &&<div className={styles.searchbutton} onClick={() => setShowMap(true)}>
+      {withSearch &&<div className={styles.searchbutton} onClick={() => setShowSearch(true)}>
         show
-        {showMap && <Search/>}
+        {showSearch && <Search/>}
       </div>}
     </div>
   );

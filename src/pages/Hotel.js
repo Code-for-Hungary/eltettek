@@ -10,10 +10,6 @@ import { displayName } from '../utils/helpers';
 import styles from './Hotel.module.css';
 
 import arrowIcon from '../assets/arrow-icon.svg';
-import horseIcon from '../assets/horse-icon.svg';
-import hotelIcon from '../assets/hotel-icon.svg';
-import linkIcon from '../assets/link-icon.svg';
-import pinIcon from '../assets/pin-icon.svg';
 
 const icon = getIcon(orangeIcon);
 
@@ -73,44 +69,42 @@ const Hotel = (props) => {
         <div className={styles.hotelWrapper}>
           <div className={styles.info}>
             <h1>{name}</h1>
-            {imageUrl && <div>
+            {imageUrl && <div className={styles.hotelRow}>
               <img src={imageUrl} alt="hotel" />
             </div>}
-            <div className={styles.hotelRow}>
-              <p>Hely típusa: <span>{type}</span></p>
-            </div>
+            {type && <div className={styles.hotelRow}>
+              <span>Hely típusa</span>
+              <p>{type}</p>
+            </div>}
             {company && (
               <div className={styles.hotelRow}>
-                <Icon img={hotelIcon} size="small"/>
-                <p>Üzemeltető:
-                  <span>{displayName(company)}</span>
-                </p>
+                <span>Üzemeltető</span>
+                <p>{displayName(company)}</p>
               </div>
             )}
             {mainPep && (
               <div className={styles.hotelRow}>
-                <Icon img={horseIcon} size="small"/>
-                <p>Kapcsolódó személyek:<br/>
-                  <div><span className={styles.pep}>
+                <span>Kapcsolódó személyek</span>
+                  <p key="main" className={styles.pep}>
                     {displayName(mainPep, 'kuratórium elnöke')}
-                  </span></div>
+                  </p>
                   {restPeps && restPeps.length > 0 && restPeps.map((pep, key) => (
-                    <><span key={key} className={styles.pep}>
-                      {displayName(pep, 'kuratóriumi tag')}
-                    </span><br/></>
+                    <React.Fragment key={key}>
+                      <p className={styles.pep}>
+                        {displayName(pep, 'kuratóriumi tag')}
+                      </p>
+                    </React.Fragment>
                   ))}
-                </p>
               </div>
             )}
             {address && (
               <div className={styles.hotelRow}>
-                <Icon img={pinIcon} size="small"/>
-                <p>Cím: <span>{address}</span></p>
+                <span>Cím: </span>
+                <p>{address}</p>
               </div>
             )}
             {link !== '' && (
               <div className={styles.hotelRow}>
-                <Icon img={linkIcon} size="small"/>
                 <a href={link} target="_blank" rel="noopener noreferrer"><span>Kapcsolódó cikk</span></a>
               </div>
             )}
@@ -137,7 +131,6 @@ const Hotel = (props) => {
               <Marker position={[lat, lng]} icon={icon}/>
             </LeafletMap>
           </div>}
-          
         </div>
       </div>
     </Layout>

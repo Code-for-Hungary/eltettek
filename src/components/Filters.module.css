@@ -18,14 +18,16 @@
 
 .filtersWrapper {
   position: relative;
-  padding: 40px;
+  padding: 32px 40px;
   background: #fff;
   overflow: auto;
   height: 100%;
   box-sizing: border-box;
 }
 
-.filtersWrapper h1 {
+.filtersWrapper h2 {
+  font-family: 'IBM Plex Mono', sans-serif;
+  font-size: 32px;
   margin-top: 0;
 }
 
@@ -51,8 +53,8 @@ button {
 }
 
 button:hover {
-  color: #3430fc;
-  border-color: #3430fc;
+  color: #3430FC;
+  border-color: #3430FC;
 }
 
 .filtersList li {
@@ -73,7 +75,7 @@ button:hover {
 }
 
 .filtersList li a:hover {
-  color: #3430fc;
+  color: #3430FC;
 }
 
 .filtersList .info {
@@ -121,5 +123,3 @@ button:hover {
   right: 15px;
   cursor: pointer;
 }
-
-
