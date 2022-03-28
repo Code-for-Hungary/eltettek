@@ -1,6 +1,6 @@
 import React from 'react';
-import Layout from './Layout';
-import styles from '../css/data-export.module.css';
+import Layout from '../components/Layout';
+import styles from './DataExport.module.css';
 import {config} from '../config.js';
 
 const DataExportView = (props) => {

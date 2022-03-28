@@ -3,14 +3,14 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 
 import './App.css';
 
-import Home from './views/Home';
-import HotelView from './views/HotelView';
-import MapView from './views/MapView';
-import AboutView from './views/AboutView';
-import ContactView from './views/ContactView';
-import CompanyView from './views/CompanyView';
-import DataExportView from './views/DataExportView';
-import DataImportView from './views/DataImportView';
+import Home from './pages/Home';
+import Hotel from './pages/Hotel';
+import Map from './pages/Map';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Company from './pages/Company';
+import DataExport from './pages/DataExport';
+import DataImport from './pages/DataImport';
 
 import { MapContext, HotelContext } from './context';
 import reducer, { initialState } from './reducer';
@@ -43,13 +43,13 @@ function App () {
           <HashRouter>
             <Switch>
               <Route path="/" exact component={Home}/>
-              <Route path="/terkep" exact component={MapView}/>
-              <Route path="/ingatlan/:id" exact component={HotelView}/>
-              <Route path="/projekt" exact component={AboutView}/>
-              <Route path="/kontakt" exact component={ContactView}/>
-              <Route path="/kekva/:name" exact component={CompanyView}/>
-              <Route path="/data-export" exact component={DataExportView}/>
-              <Route path="/data-import" exact component={DataImportView}/>
+              <Route path="/terkep" exact component={Map}/>
+              <Route path="/ingatlan/:id" exact component={Hotel}/>
+              <Route path="/projekt" exact component={About}/>
+              <Route path="/kontakt" exact component={Contact}/>
+              <Route path="/kekva/:name" exact component={Company}/>
+              <Route path="/data-export" exact component={DataExport}/>
+              <Route path="/data-import" exact component={DataImport}/>
             </Switch>
           </HashRouter>
         </MapContext.Provider>

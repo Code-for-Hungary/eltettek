@@ -1,8 +1,8 @@
 .map {
   position: relative;
-  top: 160px;
+  top: 80px;
   width: 100%;
-  height: calc(100vh - 160px);
+  height: calc(100vh - 80px);
 }
 
 .mapWrapper {

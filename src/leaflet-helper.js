@@ -2,7 +2,7 @@ import {Marker} from "react-leaflet";
 import React from "react";
 import Leaflet from "leaflet";
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-import styles from "./css/map.module.css";
+import styles from "./pages/Map.module.css";
 import defaultMarker from './assets/markers/green1.svg';
 import { colors } from "./utils/colors";
 

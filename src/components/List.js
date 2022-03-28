@@ -1,5 +1,5 @@
 import React, { useContext, useCallback } from 'react';
-import styles from '../css/list.module.css';
+import styles from './List.module.css';
 import Icon from './Icon.js';
 
 import closeIcon from '../assets/close-icon.svg';

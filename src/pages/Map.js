@@ -1,25 +1,23 @@
 import React, {useContext, useState, useEffect, useCallback, createRef} from 'react';
-
-import {Map, TileLayer} from 'react-leaflet';
-import LocateControl from './LocateControl.js';
-import MarkerClusterGroup from 'react-leaflet-markercluster';
-
+import { MapContext, HotelContext } from '../context';
+import Layout from '../components/Layout';
+import List from '../components/List';
+import Filters from '../components/Filters.js';
 import Popup from '../components/Popup';
-import Icon from './Icon';
-
+import Icon from '../components/Icon';
+import MapComponent from '../components/MapComponent';
+import filterStyles from '../components/Filters.module.css';
+import styles from './Map.module.css';
 import listIcon from '../assets/menu-icon.svg';
 import filterIcon from '../assets/filter-icon.svg';
-
-import styles from '../css/map.module.css';
-import { MapContext, HotelContext } from '../context';
-import {createClusterCustomIcon, getMarkerList} from '../leaflet-helper.js';
+import {getMarkerList} from '../leaflet-helper.js';
 
 /**
  * @param {Hotel[]} points
  * @param {LatLngBounds} bounds
  * @returns {*}
  */
-export function showPoints(points, bounds) {
+function showPoints(points, bounds) {
   return points.filter(point => {
     const [latitude, longitude] = point.geometry.coordinates;
     return (longitude > bounds._southWest.lng && longitude < bounds._northEast.lng
@@ -27,15 +25,7 @@ export function showPoints(points, bounds) {
   });
 }
 
-const locateOptions = {
-    position: 'topright',
-    keepCurrentZoomLevel: false,
-    drawCircle: true,
-    enableHighAccuracy: true,
-    compassStyle: { radius: 2, color: '#65a' }
-  };
-
-function MapComponent() {
+function MapPage(props) {
   const {
     dispatch,
     showPopup,
@@ -44,6 +34,8 @@ function MapComponent() {
     locationRequired,
     map,
     isFilterOn,
+    showFilters,
+    showList,
     selectedFilters
   } = useContext(MapContext);
   const { hotels, categories } = useContext(HotelContext);
@@ -103,32 +95,44 @@ function MapComponent() {
 
   const openFiltersCallback = () => dispatch({ type: 'ToggleFilters', showFilters: true });
 
+  const markers = getMarkerList({
+    points: visiblePoints,
+    selectedPoint,
+    clickCallback: onMarkerClickCallback,
+    categories: types || {}
+  });
+
   return (
-    <>
-      <div className={styles.map}>
-        <div className={styles.mapWrapper}>
-          <Map ref={mapRef} className="markercluster-map" center={center} zoom={13} maxZoom={19} onZoomEnd={calcPoints} onMoveEnd={calcPoints}>
-            <TileLayer
-              url='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
-              attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='https://carto.com/attributions'>CARTO</a>"
+    <Layout withSearch withList history={props.history}>
+      <div style={{display: 'flex'}}>
+        <div className={`${filterStyles.filtersContainer} ${showFilters ? filterStyles.filtersVisible : ''}`}>
+          {showFilters && <Filters/>}
+        </div>
+        <div className={styles.map}>
+          <div className={styles.mapWrapper}>
+            <MapComponent
+              mapRef={mapRef}
+              markers={markers}
+              center={center}
+              onChange={calcPoints}
+              locationRequired={locationRequired}
+              withClusters
+              withLocate
             />
-            <MarkerClusterGroup maxClusterRadius={6} zoomToBoundsOnClick={true} showCoverageOnHover={false} iconCreateFunction={createClusterCustomIcon}>
-              {getMarkerList({points: visiblePoints, selectedPoint, clickCallback: onMarkerClickCallback, categories: types || {}})}
-            </MarkerClusterGroup>
-            <LocateControl options={locateOptions} started={locationRequired} />
-          </Map>
-          <div className={`${styles.extraButton} ${styles.listButton}`} onClick={openLocationListCallback}>
-            <Icon img={listIcon} size="small"/>
-          </div>
-          <div className={`${styles.extraButton} ${styles.filterButton} ${isFilterOn ? styles.filterOn : ''}`}
-            onClick={openFiltersCallback}>
-            <Icon img={filterIcon} size="small"/>
+            <div className={`${styles.extraButton} ${styles.listButton}`} onClick={openLocationListCallback}>
+              <Icon img={listIcon} size="small"/>
+            </div>
+            <div className={`${styles.extraButton} ${styles.filterButton} ${isFilterOn ? styles.filterOn : ''}`}
+              onClick={openFiltersCallback}>
+              <Icon img={filterIcon} size="small"/>
+            </div>
           </div>
         </div>
+        {showPopup && (<Popup point={selectedPoint}/>)}
       </div>
-      {showPopup && (<Popup point={selectedPoint}/>)}
-      </>
+      {showList && <List/>}
+    </Layout>
   );
 }
 
-export default MapComponent;
+export default MapPage;

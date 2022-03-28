@@ -1,7 +1,7 @@
 import React, { useContext, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import closeIcon from '../assets/close-icon.svg';
-import styles from '../css/menu.module.css';
+import styles from './Menu.module.css';
 import Icon from './Icon';
 import image from '../assets/nh-main.svg';
 import logo from '../assets/nh-logo.svg';

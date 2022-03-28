@@ -5,13 +5,12 @@ import {Map, TileLayer} from 'react-leaflet';
 import {HotelContext} from '../context';
 import {getMarkerList} from '../leaflet-helper.js';
 import SimplePopup from '../components/SimplePopup';
+import Layout from '../components/Layout';
+import Icon from '../components/Icon';
 
-import Icon from './Icon.js';
-
-import styles from '../css/hotel.module.css';
+import styles from './Hotel.module.css';
 import arrowIcon from '../assets/arrow-icon.svg';
 import hotelIcon from '../assets/hotel-icon.svg';
-
 
 /**
  * @param {Hotel[]} hotels
@@ -24,7 +23,7 @@ function _getRelatedLocations(hotels, companyName) {
 }
 
 const Company = (props) => {
-  const companyName = props.name;
+  const companyName = props.match.params.name;
   const { hotels, categories } = useContext(HotelContext);
   const [relatedHotels, setrelatedHotels] = useState([]);
   const [current, setCurrent] = useState({});
@@ -67,6 +66,7 @@ const Company = (props) => {
   }, [categories, relatedHotels, onMarkerClickCallback])
 
   return (
+    <Layout history={props.history}>
     <div className={[styles.hotel, 'hotel'].join(' ')}>
       <div className={styles.hotelWrapper}>
         <div className={styles.info}>
@@ -113,6 +113,7 @@ const Company = (props) => {
         {showPopup && (<SimplePopup point={selectedPoint} close={() => setShowPopup(false)} /> )}
       </div>
     </div>
+    </Layout>
   );
 };
 

@@ -29,3 +29,21 @@
     color: #000;
     margin-bottom: 15px;
 }
+
+.about .link {
+    display: block;
+    margin: 0.5rem auto 1rem;
+    padding: 1rem;
+    width: 180px;
+    background: #3430fc;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+}
+
+.link:hover {
+    background: #4a47f8;
+}

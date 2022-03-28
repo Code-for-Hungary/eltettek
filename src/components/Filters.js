@@ -1,6 +1,6 @@
 import React, { useContext, useCallback, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import styles from '../css/filters.module.css';
+import styles from './Filters.module.css';
 import Icon from './Icon.js';
 import { colors } from '../utils/colors'
 import closeIcon from '../assets/close-icon.svg';

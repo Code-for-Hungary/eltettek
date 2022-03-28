@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from '../css/popup.module.css';
+import styles from './Popup.module.css';
 import Icon from './Icon';
 import closeIcon from '../assets/close-icon.svg';
 import linkIcon from '../assets/link-icon.svg';

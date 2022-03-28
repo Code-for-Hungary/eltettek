@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 
 import Search from './Search';
-import styles from '../css/header.module.css';
+import styles from './Header.module.css';
 import Icon from './Icon';
 import listIcon from '../assets/menu-icon.svg';
 import { MapContext } from '../context';

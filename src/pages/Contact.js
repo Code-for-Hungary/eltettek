@@ -1,6 +1,6 @@
 import React from 'react';
-import Layout from './Layout';
-import styles from '../css/about.module.css';
+import Layout from '../components/Layout';
+import styles from './About.module.css';
 
 const ContactView = (props) => {
   return (

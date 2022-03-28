@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../css/search.module.css';
+import styles from './Search.module.css';
 
 import { MapContext, HotelContext } from '../context';
 

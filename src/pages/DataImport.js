@@ -1,6 +1,6 @@
 import React from 'react';
-import Layout from './Layout';
-import styles from '../css/data-import.module.css';
+import Layout from '../components/Layout';
+import styles from './DataImport.module.css';
 import { config } from '../config.js';
 import { getHotels } from '../utils/getHotels';
 import { convertCsvToObject } from '../utils/csvParser.js';
