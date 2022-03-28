@@ -34,7 +34,7 @@ const Popup = ({ point, close }) => {
               </a>
             </div>)}
           </div>
-          <Link to={`/hotel/${id}`} className={styles.moreButton}>Részletek</Link>
+          <Link to={`/ingatlan/${id}`} className={styles.moreButton}>Részletek</Link>
         </>
       </div>
     </div>

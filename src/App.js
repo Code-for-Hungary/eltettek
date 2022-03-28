@@ -43,11 +43,11 @@ function App () {
           <HashRouter>
             <Switch>
               <Route path="/" exact component={Home}/>
-              <Route path="/map" exact component={MapView}/>
-              <Route path="/hotel/:id" exact component={HotelView}/>
-              <Route path="/about" exact component={AboutView}/>
-              <Route path="/contact" exact component={ContactView}/>
-              <Route path="/company/:name" exact component={CompanyView}/>
+              <Route path="/terkep" exact component={MapView}/>
+              <Route path="/ingatlan/:id" exact component={HotelView}/>
+              <Route path="/projekt" exact component={AboutView}/>
+              <Route path="/kontakt" exact component={ContactView}/>
+              <Route path="/kekva/:name" exact component={CompanyView}/>
               <Route path="/data-export" exact component={DataExportView}/>
               <Route path="/data-import" exact component={DataImportView}/>
             </Switch>

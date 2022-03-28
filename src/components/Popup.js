@@ -33,7 +33,7 @@ const Popup = (props) => {
                 <span>Üzemeltető</span>
 
                 <div className={styles.company}>
-                  <p><Link to={`/company/${company.name}`}>{company.name}</Link></p>
+                  <p><Link to={`/kekva/${company.name}`}>{company.name}</Link></p>
                 </div>
               </div>
             )}
@@ -62,7 +62,7 @@ const Popup = (props) => {
               </a>
             </div>)}
           </div>
-          <Link to={`/hotel/${id}`} className={styles.moreButton}>Részletek</Link>
+          <Link to={`/ingatlan/${id}`} className={styles.moreButton}>Részletek</Link>
         </>
       </div>
     </div>

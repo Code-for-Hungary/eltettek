@@ -1,4 +1,4 @@
-import React, {createRef, useState, useEffect, useCallback, useContext} from 'react';
+import React, {createRef, useState, useEffect, useCallback, useContext, useMemo} from 'react';
 import {Link} from "react-router-dom";
 import Leaflet from "leaflet";
 import {Map, TileLayer} from 'react-leaflet';
@@ -11,6 +11,8 @@ import Icon from './Icon.js';
 import styles from '../css/hotel.module.css';
 import arrowIcon from '../assets/arrow-icon.svg';
 import hotelIcon from '../assets/hotel-icon.svg';
+import {markers} from '../utils/allMarkers'
+
 
 /**
  * @param {Hotel[]} hotels
@@ -24,7 +26,7 @@ function _getRelatedLocations(hotels, companyName) {
 
 const Company = (props) => {
   const companyName = props.name;
-  const { hotels } = useContext(HotelContext);
+  const { hotels, categories } = useContext(HotelContext);
   const [relatedHotels, setrelatedHotels] = useState([]);
   const [current, setCurrent] = useState({});
   const [showPopup, setShowPopup] = useState(false);
@@ -34,19 +36,19 @@ const Company = (props) => {
   useEffect(() => {
     if (hotels && !relatedHotels.length) {
       const related = _getRelatedLocations(hotels, companyName);
-      setrelatedHotels(related);
+      setrelatedHotels(related.filter(hotel => hotel.geometry.coordinates.length > 0));
       setCurrent(related[0]);
     }
   }, [hotels, relatedHotels, companyName, props.id])
 
   const { company, imageUrl } = current.properties || {};
 
-  const bounds = relatedHotels.length ?
+  const bounds = useMemo(() => relatedHotels.length ?
     new Leaflet.LatLngBounds(relatedHotels.map(hotel => hotel.geometry.coordinates)) :
-    undefined;
+    undefined, [relatedHotels]);
 
   const goBack = () => {
-      props.history.push('/map');
+      props.history.push('/terkep');
     }
   ;
 
@@ -55,11 +57,15 @@ const Company = (props) => {
     setSelectedPoint(point)
   }, []);
 
-  const markerList = getMarkerList({
-    points: relatedHotels,
-    selectedPoint: null,
-    clickCallback: onMarkerClickCallback 
-  });
+
+  const markerList = useMemo(() => {
+    return categories ? relatedHotels && getMarkerList({
+      points: relatedHotels,
+      selectedPoint: null,
+      clickCallback: onMarkerClickCallback,
+      categories
+    }) : []
+  }, [categories, relatedHotels, onMarkerClickCallback])
 
   return (
     <div className={[styles.hotel, 'hotel'].join(' ')}>
@@ -81,7 +87,7 @@ const Company = (props) => {
                     
                     return (
                       <li key={key} className={styles.pep}>
-                        <Link to={`/hotel/${id}`}>{name}</Link>
+                        <Link to={`/ingatlan/${id}`}>{name}</Link>
                         <span className={styles.title}>{`${type ? type : ''} ${address ? `– ${address}` : ''} ${date ? `- Adat frissítve: ${date}` : ''}`}</span>
                         {details && <p><span>Kapcsolódó információ:</span> {details}</p>}
                       </li>
@@ -96,13 +102,14 @@ const Company = (props) => {
           </div>
         </div>
         <div className={styles.map}>
-          <Map ref={mapRef} className="markercluster-map" zoom={16} maxZoom={19} bounds={bounds}>
+        {relatedHotels.length &&
+          <Map ref={mapRef} className="markercluster-map" zoom={16} maxZoom={20} bounds={bounds}>
               <TileLayer
                 url='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
                 attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='https://carto.com/attributions'>CARTO</a>"
               />
                 {markerList}
-            </Map>
+            </Map>}
         </div>
         {showPopup && (<SimplePopup point={selectedPoint} close={() => setShowPopup(false)} /> )}
       </div>

@@ -12,7 +12,7 @@ function FilterInput({ label, id, onChange, color, checked }) {
     <li>
       <div className={styles.info}>
         <div className={styles.color} style={{ color }}></div>
-        <Link to={`/company/${label}`}>{label}</Link>
+        <Link to={`/kekva/${label}`}>{label}</Link>
       </div>
       <input type="checkbox" id={id} name={id} checked={checked} onChange={() => onChange(id)} />
       <div className={styles.checkbox}></div>

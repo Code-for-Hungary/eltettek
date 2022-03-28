@@ -30,13 +30,13 @@ const Menu = () => {
       </div>}
       <ul className={styles.menulist}>
         <li key="m1">
-          <Link to="/map">Térkép</Link>
+          <Link to="/terkep">Térkép</Link>
         </li>
         <li key="m2">
-          <Link to="/about">Mi ez?</Link>
+          <Link to="/projekt">Mi ez?</Link>
         </li>
         <li key="m3">
-          <Link to="/contact">Kontakt</Link>
+          <Link to="/kontakt">Kontakt</Link>
         </li>
         <li key="m4"><a href={config.formUrl} target="_blank" rel="noopener noreferrer">Küldj be!</a></li>
         {/* <li key="m5"><a href="https://tamogatas.k-monitor.hu" target="_blank" rel="noopener noreferrer"><font color="#F05F22">Támogasd!</font></a></li> */}

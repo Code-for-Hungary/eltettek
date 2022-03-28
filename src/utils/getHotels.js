@@ -31,6 +31,8 @@ export function getHotels(csvRowsAsObjects) {
     const peps = ['PEP_1', 'PEP_2', 'PEP_3', 'PEP_4', 'PEP_5'].map(name => {
       return { name: csvRow[name], link: csvRow[`${name}_link`] }
     });
+    const lat = parseCoordinates(csvRow['lat']);
+    const lng = parseCoordinates(csvRow['lng']);
     
     return {
       type: 'Feature',
@@ -54,7 +56,7 @@ export function getHotels(csvRowsAsObjects) {
       },
       geometry: {
         type: 'Point',
-        coordinates: [parseCoordinates(csvRow['lat']), parseCoordinates(csvRow['lng'])],
+        coordinates: lat && lng ? [lat, lng] : [],
       },
     };
   });

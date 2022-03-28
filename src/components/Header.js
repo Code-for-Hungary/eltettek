@@ -1,25 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 import Search from './Search';
 import styles from '../css/header.module.css';
 import Icon from './Icon';
 import listIcon from '../assets/menu-icon.svg';
-
-import logo from '../assets/nh-logo.svg';
-import hotel from '../assets/nh-hotel.svg';
-import beach from '../assets/nh-beach.svg';
-import restaurant from '../assets/nh-restaurant.svg';
-import golf from '../assets/nh-golf.svg';
 import { MapContext } from '../context';
 
 const Header = (props) => {
   const { history, withSearch } = props;
   const { dispatch } = useContext(MapContext);
-
-  const goHome = () => {
-    dispatch({ type: 'TogglePopup', showPopup: false });
-    history.push('/');
-  };
+  const [showMap, setShowMap] = useState(false)
 
   const onMenuCallback = () => {
     dispatch({ type: 'ToggleMenu', showMenu: true })
@@ -33,19 +23,12 @@ const Header = (props) => {
         <Icon img={listIcon} size="large"/>
       </div>
       <div className={styles.headerWrapper}>
-        <div onClick={() => goHome()} className={styles.logo}>
-          <img src={logo} alt=""/>
-        </div>
-        <div className={styles.headerInner}>
-          <div className={styles.icons}>
-            <img src={hotel} alt=""/>
-            <img src={beach} alt=""/>
-            <img src={restaurant} alt=""/>
-            <img src={golf} alt=""/>
-          </div>
-          {withSearch && <Search/>}
-        </div>
+        
       </div>
+      {withSearch &&<div className={styles.searchbutton} onClick={() => setShowMap(true)}>
+        show
+        {showMap && <Search/>}
+      </div>}
     </div>
   );
 }

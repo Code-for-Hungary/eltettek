@@ -60,7 +60,7 @@ const Hotel = (props) => {
   const [mainPep, ...restPeps] = peps || [];
 
   const goBack = () => {
-      props.history.push('/map');
+      props.history.push('/terkep');
       dispatch({type: 'SetSelectedPoint', point: hotel});
       dispatch({type: 'SetCenter', center: [lat, lng]});
     }

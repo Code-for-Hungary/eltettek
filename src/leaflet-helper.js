@@ -3,7 +3,7 @@ import React from "react";
 import Leaflet from "leaflet";
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import styles from "./css/map.module.css";
-import { markers } from './assets/markers/allMarkers';
+import { markers } from './utils/allMarkers';
 import defaultMarker from './assets/markers/green1.svg';
 
 export function getIcon(iconUrl) {

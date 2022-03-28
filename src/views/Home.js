@@ -12,7 +12,7 @@ const AboutView = (props) => {
         <p>Ez a folyamat azért problémás, mert <b>az átszervezés indokaként megnevezett függetlenség és hosszú távú stabilitás a valóságban politikai bebetonozást takar</b>. Az alapítványok kuratóriumába tucatszám ültetett be az alapító magyar állam kormánytagokat és képviselőket, akik innentől a mindenkori kormányok számára leválthatatlanul irányítják a rájuk bízott intézményeket és gazdálkodnak a kapott vagyonnal. Ez jól fizető pozíciók mellett, de politikai ellensúlyszerepet is jelent, hiszen a megkerülhetetlen egyetemfenntartó kuratóriumokkal egy más színű kormánynak is együtt kell működnie. Figyelemre méltó az is, hogy a KEKVÁ-k tisztségviselői esetében gyakorlatilag semmilyen összeférhetetlenségi szabály nem érvényesül, ezzel pedig sérül hatalommegosztás Alaptörvényben rögzített elve. Amióta a gyakorlatban is működnek az alapítványok, a bennük vezető pozíciót betöltő képviselők dokumentáltan megszavazták az állami támogatást a saját alapítványaiknak.</p>
         <p>A következőkben térképen mutatjuk meg a vagyonkezelő alapítványoknak kijátszott ingatlanvagyont.</p>
         <br />
-        <Link to="/map">Tovább a térképhez!</Link>
+        <Link to="/terkep" className={styles.link}>Tovább a térképhez</Link>
       </div>
     </Layout>
   );
