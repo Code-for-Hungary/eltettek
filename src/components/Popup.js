@@ -26,7 +26,7 @@ const Popup = (props) => {
           <Icon img={closeIcon} size="large"/>
         </div>
         <>
-          <h1>{name}</h1>
+          {name && <h1>{name}</h1>}
           <div className={styles.popupRow}>
             <div className={styles.popupCol}>
               {company && (

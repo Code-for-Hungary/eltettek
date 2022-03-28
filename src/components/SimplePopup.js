@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom';
 import styles from './Popup.module.css';
 import Icon from './Icon';
 import closeIcon from '../assets/close-icon.svg';
-import linkIcon from '../assets/link-icon.svg';
-import pinIcon from '../assets/pin-icon.svg';
-
 
 const Popup = ({ point, close }) => {
   const data = point.properties;
@@ -23,12 +20,10 @@ const Popup = ({ point, close }) => {
             <div>
               <span>Cím</span>
               <div className={styles.popupRow}>
-                <Icon img={pinIcon} size="small"/>
                 <p>{address}</p>
               </div>
             </div>
             {!!link && (<div className={styles.popupRow}>
-              <Icon img={linkIcon} size="small"/>
               <a href={link} target="_blank" rel="noopener noreferrer">
                 Kapcsolódó cikk
               </a>

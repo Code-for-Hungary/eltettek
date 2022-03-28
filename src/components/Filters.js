@@ -38,10 +38,12 @@ function Filters() {
 
   const onAllClick = useCallback(() => {
     dispatch({ type: 'SetCategories', selectedFilters: defaultCategories });
+    dispatch({ type: 'SetFilterOn', isFilterOn: false });
   }, [defaultCategories, dispatch]);
 
   const onClear = useCallback(() => {
     dispatch({ type: 'SetCategories', selectedFilters: [] });
+    dispatch({ type: 'SetFilterOn', isFilterOn: true });
   }, [dispatch]);
 
   const isAll = useMemo(() =>

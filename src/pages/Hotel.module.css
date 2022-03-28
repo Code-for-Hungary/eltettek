@@ -18,11 +18,16 @@
   margin-bottom: 10px;
 }
 
+
 .info {
   width: 36%;
 }
 
-.info img {
+.imgWrapper {
+  margin-bottom: 32px;
+}
+
+.imgWrapper img {
   width: 100%;
 }
 
@@ -39,7 +44,6 @@
   display: inline-block;
 }
 
-
 .hotelRow p {
   line-height: 1.3;
   margin-left: 10px;
@@ -49,9 +53,8 @@
   font-weight: 700;
 }
 
-
 .hotelRow p.title {
-  font-weight: 400;
+  font-weight: 500;
   font-style: italic;
 }
 
@@ -61,6 +64,11 @@
 
 .hotelRow a:hover {
   color: #3430FC;
+}
+
+.hotelRow ul {
+  list-style: none;
+  padding: 0;
 }
 
 

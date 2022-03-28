@@ -70,7 +70,9 @@ const Hotel = (props) => {
           <div className={styles.info}>
             <h1>{name}</h1>
             {imageUrl && <div className={styles.hotelRow}>
-              <img src={imageUrl} alt="hotel" />
+              <div className={styles.imgWrapper}>
+                <img src={imageUrl} alt="hotel" />
+              </div>
             </div>}
             {type && <div className={styles.hotelRow}>
               <span>Hely típusa</span>

@@ -4,7 +4,7 @@ import styles from './Menu.module.css';
 import { config } from '../config';
 
 const Menu = () => {
- return (
+  return (
     <div className={styles.menu}>
       <ul className={styles.menulist}>
         <li key="m1">

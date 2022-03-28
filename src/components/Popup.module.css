@@ -1,7 +1,7 @@
 .popup {
   position: absolute;
   width: 100%;
-  max-width: 480px;
+  max-width: 490px;
   z-index: 10000;
   bottom: 40px;
   left: 50%;
@@ -31,10 +31,11 @@
 }
 
 .popupInner h1 {
-  border-bottom: 1px solid #ccc;
+  width: 95%;
   margin: 0 0 16px;
   padding-bottom: 10px;
   font-size: 24px;
+  border-bottom: 1px solid #ccc;
 }
 
 .popupInner a {
@@ -88,18 +89,19 @@
 }
 
 .popupInner .moreButton:hover {
-  background-color: #524ffa;
+  background-color: #FD6BA9;
   color: #fff;
 }
 
 .popupRow {
   display: flex;
+  justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .popupCol:first-child {
-  width: 36%;
+  width: 34%;
 }
 
 .popupCol:last-child {

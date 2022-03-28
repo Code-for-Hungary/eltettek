@@ -16,13 +16,16 @@
     margin-bottom: 45px;
 }
 
+.about h1,
 .about h2 {
     font-size: 24px;
+    font-family: 'IBM Plex Mono', sans-serif;
 }
 
 .about p {
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 18px;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
 }
 
 .about a {
@@ -46,5 +49,5 @@
 }
 
 .link:hover {
-    background: #4a47f8;
+    background: #FD6BA9;
 }

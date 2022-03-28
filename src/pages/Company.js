@@ -10,7 +10,6 @@ import Icon from '../components/Icon';
 
 import styles from './Hotel.module.css';
 import arrowIcon from '../assets/arrow-icon.svg';
-import hotelIcon from '../assets/hotel-icon.svg';
 
 /**
  * @param {Hotel[]} hotels
@@ -71,13 +70,18 @@ const Company = (props) => {
       <div className={styles.hotelWrapper}>
         <div className={styles.info}>
           <h1>{companyName}</h1>
-          {imageUrl && <img src={imageUrl} alt='' />}
-          {company && company.info && <p>{company.info}</p>}
+          {imageUrl && 
+            <div className={styles.hotelRow}>
+              <div className={styles.imgWrapper}>
+                <img src={imageUrl} alt='' />
+              </div>
+            </div>
+          }
+          {company && company.info && <p dangerouslySetInnerHTML={{__html: company.info}} />}
           {(relatedHotels && relatedHotels.length > 0) && (
             <>
               <div className={styles.hotelRow}>
-                <Icon img={hotelIcon} size="small"/>
-                <p>Kapcsolódó helyszínek:</p>
+                <h3>Kapcsolódó helyszínek:</h3>
               </div>
               <div className={styles.hotelRow}>
                 <ul>
@@ -86,8 +90,10 @@ const Company = (props) => {
                     
                     return (
                       <li key={key} className={styles.pep}>
-                        <Link to={`/ingatlan/${id}`}>{name}</Link>
-                        <span className={styles.title}>{`${type ? type : ''} ${address ? `– ${address}` : ''} ${date ? `- Adat frissítve: ${date}` : ''}`}</span>
+                        <p>
+                          <Link to={`/ingatlan/${id}`}>{name}</Link>
+                          {`${type ? type : ''} ${address ? `– ${address}` : ''} ${date ? `- Adat frissítve: ${date}` : ''}`}
+                        </p>
                         {details && <p><span>Kapcsolódó információ:</span> {details}</p>}
                       </li>
                     )
