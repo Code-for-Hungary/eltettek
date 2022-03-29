@@ -105,14 +105,14 @@ const Hotel = (props) => {
                 <p>{address}</p>
               </div>
             )}
-            {link !== '' && (
-              <div className={styles.hotelRow}>
-                <a href={link} target="_blank" rel="noopener noreferrer"><span>Kapcsolódó cikk</span></a>
-              </div>
-            )}
             {details !== '' && (
               <div className={styles.hotelRow}>
                 <p><span>HRSZ:</span><br/>{details}</p>
+              </div>
+            )}
+            {link !== '' && (
+              <div className={styles.hotelRow}>
+                <a href={link} target="_blank" rel="noopener noreferrer"><span>Kapcsolódó cikk</span></a>
               </div>
             )}
             {date !== '' && (
