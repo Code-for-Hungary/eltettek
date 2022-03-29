@@ -80,7 +80,7 @@ const Hotel = (props) => {
             </div>}
             {company && (
               <div className={styles.hotelRow}>
-                <span>Üzemeltető</span>
+                <span>Tulajdonos</span>
                 <p>{displayName(company)}</p>
               </div>
             )}
