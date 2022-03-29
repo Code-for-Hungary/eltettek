@@ -10,7 +10,7 @@ import { displayName } from '../utils/helpers';
 const Popup = (props) => {
   const { dispatch } = React.useContext(MapContext);
   const data = props.point.properties;
-  const { id, peps, name, company, address, link } = data;
+  const { id, peps, name, company, address, type, link } = data;
 
   const close = React.useCallback(() => {
     dispatch({ type: 'SetSelectedPoint', point: null });
@@ -29,38 +29,31 @@ const Popup = (props) => {
           {name && <h1>{name}</h1>}
           <div className={styles.popupRow}>
             <div className={styles.popupCol}>
+              
               {company && (
                 <div>
                   <span>Tulajdonos</span>
-                  <div className={styles.company}>
-                    <p><Link to={`/kekva/${company.name}`}>{company.name}</Link></p>
-                  </div>
+                  <p><Link to={`/kekva/${company.name}`}>{company.name}</Link></p>
                 </div>
               )}
+              <div style={{marginBottom: '20px'}}>
+                <span>Cím</span>
+                <p>{address}</p>
+              </div>
               {!!link && (<div>
                 <a href={link} target="_blank" rel="noopener noreferrer">
                   Kapcsolódó cikk
                 </a>
               </div>)}
-              <div>
-                <span>Cím</span>
-                <div className={styles.popupRow}>
-                  <p>{address}</p>
-                </div>
-              </div>
             </div>
             <div className={styles.popupCol}>
               {peps && peps.length > 0 && (
                   <>
                     <span>Személyek</span>
-                    <div className={styles.pep}>
-                      <p>{displayName(mainPep, 'kuratórium elnöke')}</p>
-                      {restPeps && restPeps.length > 0 && restPeps.map((pep, key) => (
-                        <div key={key}>
-                          <p>{displayName(pep, 'kuratóriumi tag')}</p>
-                        </div>
-                      ))}
-                    </div>
+                    <p>{displayName(mainPep, 'kuratórium elnöke')}</p>
+                    {restPeps && restPeps.length > 0 && restPeps.map((pep, key) => (
+                      <p key={key}>{displayName(pep, 'kuratóriumi tag')}</p>
+                    ))}
                   </>
               )}
             </div>

@@ -60,6 +60,7 @@
     font-family: 'IBM Plex Mono', sans-serif;
 }
 
-.link:hover {
+.about .link:hover {
     background: #FD6BA9;
+    text-decoration: none;
 }

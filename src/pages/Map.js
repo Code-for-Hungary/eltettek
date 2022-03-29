@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect, useCallback, createRef} from 'react';
+import React, {useMemo, useContext, useState, useEffect, useCallback, createRef} from 'react';
 import { MapContext, HotelContext } from '../context';
 import Layout from '../components/Layout';
 import List from '../components/List';
@@ -41,15 +41,16 @@ function MapPage(props) {
   const [loaded, setLoaded] = useState(false);
   const [visiblePoints, setVisiblePoints] = useState([]);
   const mapRef = createRef();
-  const [types, setTypes ] = useState({})
   const [pointsToShow, setPointsToShow] = useState([]);
   const [showFilters, setShowFilters] = useState(false);
 
   const calcPoints = useCallback(() => {
+    if (mapRef.current && pointsToShow.length > 0) {
     let mapBounds = mapRef.current.leafletElement.getBounds();
     const points = showPoints(pointsToShow, mapBounds);
     setVisiblePoints(points);
     dispatch({ type: 'SetList', list: points })
+    }
   }, [pointsToShow, dispatch, mapRef]);
 
   useEffect(() => {
@@ -57,7 +58,6 @@ function MapPage(props) {
       calcPoints();
       dispatch({ type: 'SetMap', map: mapRef.current.leafletElement });
       setLoaded(true);
-      setTypes(categories)
       if (!selectedFilters.length) dispatch({ type: 'SetCategories', selectedFilters: Object.keys(categories) });
     }
   }, [hotels, categories, dispatch, loaded, calcPoints, mapRef, map, selectedFilters]);
@@ -65,7 +65,7 @@ function MapPage(props) {
   useEffect(() => {
     calcPoints();
   // eslint-disable-next-line
-  }, [pointsToShow]);
+  }, [pointsToShow, center]);
 
   useEffect(() => {
     if (hotels) {
@@ -93,12 +93,10 @@ function MapPage(props) {
     dispatch({ type: 'ToggleList', showList: true });
   }, [dispatch, calcPoints]);
 
-  const markers = getMarkerList({
+  const markers = useMemo(() => getMarkerList({
     points: visiblePoints,
-    selectedPoint,
     clickCallback: onMarkerClickCallback,
-    categories: types || {}
-  });
+  }), [visiblePoints, onMarkerClickCallback]);
 
   return (
     <Layout withSearch withList history={props.history}>

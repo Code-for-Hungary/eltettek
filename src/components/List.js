@@ -1,9 +1,7 @@
 import React, { useContext, useCallback } from 'react';
 import styles from './List.module.css';
 import Icon from './Icon.js';
-
 import closeIcon from '../assets/close-icon.svg';
-import pinIcon from '../assets/pin-icon.svg';
 
 import { MapContext } from '../context';
 
@@ -15,18 +13,17 @@ const ListItem = ({ item }) => {
     <h1>{name}</h1>
     <div className={styles.listItemRow}>
     <div className={styles.listItemCol}>
-        <Icon img={pinIcon} size="small"/>
-        <p>{address}</p>
-      </div>
-      {peps.length > 0 && (
-        <div className={styles.listItemCol}>
-          <div className={styles.pepList}>
-            {peps.map((pep, key) => (
-                <p key={key}>{pep.name}</p>
-            ))}
-          </div>
+      <p><b>{address}</b></p>
+    </div>
+    {peps.length > 0 && (
+      <div className={styles.listItemCol}>
+        <div className={styles.pepList}>
+          {peps.map((pep, key) => (
+              <p key={key}>{pep.name}</p>
+          ))}
         </div>
-      )}
+      </div>
+    )}
     </div>
   </>)
 };
@@ -46,7 +43,7 @@ function List() {
   }, [map, dispatch]);
 
   const closeList = () => {
-      dispatch({ type: 'ToggleList', showList: false });
+    dispatch({ type: 'ToggleList', showList: false });
   }
 
   return (

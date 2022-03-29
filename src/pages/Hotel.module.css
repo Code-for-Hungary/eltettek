@@ -49,6 +49,15 @@
   margin-left: 10px;
 }
 
+.hotel a {
+  color: #3430FC;
+  text-decoration: none;
+}
+
+.hotel a:hover {
+  color: #FD6BA9;
+}
+
 .hotelRow span {
   font-weight: 700;
 }
@@ -58,13 +67,6 @@
   font-style: italic;
 }
 
-.hotelRow a {
-  color: #000;
-}
-
-.hotelRow a:hover {
-  color: #3430FC;
-}
 
 .hotelRow ul {
   list-style: none;

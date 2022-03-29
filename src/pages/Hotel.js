@@ -1,17 +1,14 @@
-import React, {useContext, useState, useEffect} from 'react';
+import React, {useMemo, useContext, useState, useEffect} from 'react';
 import {Map as LeafletMap, Marker, TileLayer} from 'react-leaflet';
 import {MapContext, HotelContext} from '../context';
 import Icon from '../components/Icon.js';
 import Layout from '../components/Layout';
 import {getIcon} from "../leaflet-helper.js";
-import orangeIcon from "../assets/markers/orange1.svg";
 import { displayName } from '../utils/helpers';
-
 import styles from './Hotel.module.css';
 
 import arrowIcon from '../assets/arrow-icon.svg';
 
-const icon = getIcon(orangeIcon);
 
 /**
  * @typedef {Object} HotelGeometry
@@ -42,7 +39,7 @@ const Hotel = (props) => {
   const { id } = props.match.params;
   const { dispatch } = useContext(MapContext);
   const { hotels } = useContext(HotelContext);
-  
+
   const [hotel, setHotel] = useState(null);
 
   useEffect(() => {
@@ -51,6 +48,14 @@ const Hotel = (props) => {
       setHotel(hotelById)
     }
   }, [hotels, id])
+
+  const icon = useMemo(() => {
+    const marker = hotel && hotel.properties.color.icon ? hotel.properties.color.icon : '';
+    return getIcon(marker);
+  }, [hotel]);
+
+  // const icon = getIcon(blueIcon);
+
 
   const { name, imageUrl, type, company, peps, address, link, details, date } = hotel ? hotel.properties : {};
   const [lat, lng] = hotel ? hotel.geometry.coordinates : [];

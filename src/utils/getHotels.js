@@ -1,3 +1,5 @@
+import { colors } from './colors';
+
 function cleanPersonData({name, link}) {
 	return name && name.trim() ? { name: name.trim(), link } : [];
 }
@@ -47,12 +49,13 @@ export function getHotels(csvRowsAsObjects) {
         },
         name: csvRow['location_name'],
         city: csvRow['city'],
-        type: csvRow['tipus'],
+        type: csvRow['type_name'],
         link: csvRow['news'],
         peps: cleanAllPeps(peps),
         date: csvRow['date'],
         details: csvRow['details'],
-        imageUrl: csvRow['pic_url']
+        imageUrl: csvRow['pic_url'],
+        color: colors[csvRow['kekva_kod']]
       },
       geometry: {
         type: 'Point',

@@ -22,7 +22,7 @@ function Filters() {
   const { dispatch, selectedFilters } = useContext(MapContext);
   const { categories } = useContext(HotelContext);
   const defaultCategories = Object.keys(categories);
-  const colorList = colors.map(color => color.code);
+  
 
   const onChange = useCallback((filterCode) => {
     const updatedFilters = selectedFilters.includes(filterCode) ? 
@@ -58,8 +58,15 @@ function Filters() {
           <button id='all' className={isAll && styles.active} onClick={onAllClick}>Mutasd mind</button>
           <button id='clear' className={!isAll && styles.active} onClick={onClear}>Kijelöltek törlése</button>
         </div>
-        {Object.entries(categories).map(([code, label], index) => (
-          <FilterInput key={code} label={label} id={code} checked={selectedFilters.includes(code)} onChange={onChange} color={colorList[index]} />
+        {Object.entries(categories).map(([code, label]) => (
+          <FilterInput
+            key={code}
+            label={label}
+            id={code}
+            color={colors[code].code}
+            checked={selectedFilters.includes(code)}
+            onChange={onChange}
+          />
         ))}
       </div>
     </div>

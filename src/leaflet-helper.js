@@ -3,10 +3,11 @@ import React from "react";
 import Leaflet from "leaflet";
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import styles from "./pages/Map.module.css";
-import defaultMarker from './assets/markers/green1.svg';
-import { colors } from "./utils/colors";
+import defaultMarker from './assets/markers/pink1.svg';
 
-export function getIcon(iconUrl) {
+export function getIcon(iconUrl = '') {
+  console.log('url',iconUrl );
+  
   return Leaflet.icon({
     iconUrl: iconUrl || defaultMarker,
     shadowUrl: iconShadow,
@@ -35,13 +36,10 @@ export function createClusterCustomIcon(cluster) {
 export function getMarkerList({
   points,
   clickCallback = () => {},
-  categories = {}
 }) {
   return points.map((point, index) => {
     const [latitude, longitude] = point.geometry.coordinates;
-    const companyCode = point.properties.company.code;
-    const order = Object.keys(categories).indexOf(companyCode);
-    const { icon } = colors[order]
+    const { icon } = point.properties.color;
     const MapIcon = getIcon(icon);
 
     return (

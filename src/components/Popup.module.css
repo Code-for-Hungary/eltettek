@@ -42,14 +42,13 @@
   display: inline-block;
   font-size: 15px;
   font-weight: 700;
-  color: #000;
+  color: #3430FC;
   transition: color .2s;
-  margin-bottom: 5px;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .popupInner a:hover {
-  color: #3430FC;
+  color: #FD6BA9;
 }
 
 .popupInner span {
@@ -97,7 +96,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 .popupCol:first-child {
@@ -106,6 +105,11 @@
 
 .popupCol:last-child {
   width: 64%;
+}
+
+.type {
+  display: flex;
+  align-items: baseline;
 }
 
 .pep span {
