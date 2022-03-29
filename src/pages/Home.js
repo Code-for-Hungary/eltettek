@@ -14,14 +14,14 @@ const AboutView = (props) => {
         <br />
         <Link to="/terkep" className={styles.link}>Tovább a térképhez</Link>
         <br />
-          <p><h id="csillag">* A kuratóriumok élére többek közt olyan személyek kerültek, mint
+          <p><h id="csillag">*</h> A kuratóriumok élére többek közt olyan személyek kerültek, mint
           <li><a href="https://adatbazis.k-monitor.hu/adatbazis/cimkek/csanyi-sandor" target="new">Csányi Sándor</a> - a Magyar Agrár- és Élettudományi Egyetemért Alapítvány kuratóriumi elnöke</li>
           <li><a href="https://adatbazis.k-monitor.hu/adatbazis/cimkek/lazar-janos" target="new">Lázár János</a> - a Jövő Nemzedék Földje Alapítvány kuratóriumi elnöke</li>
           <li><a href="https://adatbazis.k-monitor.hu/adatbazis/cimkek/varga-judit" target="new">Varga Judit</a> - az Universitas Miskolcinensis Alapítvány kuratóriumi elnöke</li>
           <li><a href="https://adatbazis.k-monitor.hu/adatbazis/cimkek/demeter-szilard" target="new">Demeter Szilárd</a> - a Magyar Kultúráért Alapítvány kuratóriumi elnöke</li>
           <li><a href="https://adatbazis.k-monitor.hu/adatbazis/cimkek/varga-mihaly" target="new">Varga Mihály</a> - a Rudolf Kalman Óbudai Egyetemért Alapítvány kuratóriumi elnöke</li>
           <li><a href="https://adatbazis.k-monitor.hu/adatbazis/cimkek/orban-balazs" target="new">Orbán Balázs</a> - Mathias Corvinus Collegium Alapítvány kuratóriumi elnöke</li>
-
+          </p>
       </div>
     </Layout>
   );
