@@ -112,7 +112,7 @@ const Hotel = (props) => {
             )}
             {details !== '' && (
               <div className={styles.hotelRow}>
-                <p><span>Kapcsolódó információ:</span><br/>{details}</p>
+                <p><span>HRSZ:</span><br/>{details}</p>
               </div>
             )}
             {date !== '' && (
