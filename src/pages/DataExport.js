@@ -9,7 +9,7 @@ const DataExportView = (props) => {
       <div className={styles['data-export']}>
         <section>
           <h1>Adat export</h1>
-          <p>A transzparencia jegyében és az adatok könnyű elemezhetőségéért itt van a NER Hotel teljes adatbázisa CSV formátumban.</p>
+          <p>Az adatok könnyű elemezhetőségéért innen elérhető a térképen szereplő helyek teljes adatbázisa CSV formátumban.</p>
           <p><a href={config.csvDownloadUrl}>Letöltés</a></p>
         </section>
       </div>
