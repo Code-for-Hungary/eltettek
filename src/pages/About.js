@@ -22,14 +22,15 @@ const AboutView = (props) => {
             <li><a href="https://k.blog.hu/2021/11/24/kekva_830" target="new">Mi történik az alapítványoknak kiszervezett közvagyonnal?</a> - <i>2021.11.24.</i></li>
           </section>
           <section>
-           <h2>Az adatok számokban</h2>  
+           <h2>Az adatokról</h2>  
             <p>Az ingatlanok és a hozzájuk tartozó adatok elsődleges forrása a KEKVÁkat létrehozó törvények, amelyek mellékletei tartalmazzák az átadásra kerülő állami tulajdonú ingatlanok felsorolását. A legtöbb esetben helyrajziszámot tartalmazó felsorolást a <a href="https://mepar.mvh.allamkincstar.gov.hu/" target="new">MePAR</a> segítségével alakítottuk földrajzi koordinátákká. Az adatbázist kiegészítettük továbbá az alapítványok kuratóriumi tagságával. Az ingatlanok közértetőbbé tétele érdekében - ahol arra lehetőség volt - hétköznapi elnevezéssel, képpel illetve kapcsolódó sajtócikkekkel láttuk el.</p>
             <p>A térképen megjelenített teljes adatbázis <b>23 közérdekű vagyonkezelő alapítvány, több mint 1400 inaglanját tartalmazza</b>. * A felsőoktatási épületeken túl ezek között akad számos beépítetlen terület, gazdasági épület, de sok esetben nemzetgazdaságilag és társadalmilag értékes kutatóközpont, műemlék, lakóház, üdülő is.</p>
             <p>* <i>A mezőhegyesi ménesbirtokot működtető Jövő Nemzedék Földje Alapítvány 776, többségében mezőgazdasági művelés alatt álló ingatlanját mennyiségi korlátok miatt nem szerepeltetjük a térképen. Ezek mindegyike Mezőhegyes (Békés megye) területén fekszik.</i></p>
           </section>
           <section>
-          <h2>Köszönet</h2>  
-          <p></p>
+           <h2>Köszönet</h2>  
+            <p>Az oldal fejlesztésében részt vevő <a href="code4.hu" target="new">Code for Hungary</a> önkénteseknek, <a href="http://feren.cz/" target="new">Ferencz Miklósnak</a> (grafika).</p>
+            <p><a href="http://vercel.com/" target="new">Hosted on Vercel</a>.</p>
           </section>
       </div>
     </Layout>
