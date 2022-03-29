@@ -31,7 +31,7 @@ const Popup = (props) => {
             <div className={styles.popupCol}>
               {company && (
                 <div>
-                  <span>Üzemeltető</span>
+                  <span>Tulajdonos</span>
                   <div className={styles.company}>
                     <p><Link to={`/kekva/${company.name}`}>{company.name}</Link></p>
                   </div>
