@@ -81,7 +81,7 @@ const Company = (props) => {
           {(relatedHotels && relatedHotels.length > 0) && (
             <>
               <div className={styles.hotelRow}>
-                <h3>Kapcsolódó helyszínek:</h3>
+                <h3>Kapcsolódó ingatlanok:</h3>
               </div>
               <div className={styles.hotelRow}>
                 <ul>
