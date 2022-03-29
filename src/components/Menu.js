@@ -16,9 +16,9 @@ const Menu = () => {
         <li key="m3">
           <Link to="/kontakt">Kontakt</Link>
         </li>
-        <li key="m4"><a href={config.formUrl} target="_blank" rel="noopener noreferrer">Küldj be!</a></li>
+        <li key="m4"><a href="https://tamogatas.k-monitor.hu" target="_blank" rel="noopener noreferrer">Tetszik? Támogasd!</a></li>
         {/* <li key="m5"><a href="https://tamogatas.k-monitor.hu" target="_blank" rel="noopener noreferrer"><font color="#F05F22">Támogasd!</font></a></li> */}
-        <li key="m6"><Link to="/data-export">Export</Link></li>
+        <li key="m6"><Link to="/data-export">Adatok letöltése</Link></li>
       </ul>
     </div>
   );
