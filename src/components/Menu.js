@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Menu.module.css';
-import { config } from '../config';
 
 const Menu = () => {
   return (
@@ -17,8 +16,7 @@ const Menu = () => {
           <Link to="/kontakt">Kontakt</Link>
         </li>
         <li key="m4"><a href="https://tamogatas.k-monitor.hu" target="_blank" rel="noopener noreferrer">Tetszik? Támogasd!</a></li>
-        {/* <li key="m5"><a href="https://tamogatas.k-monitor.hu" target="_blank" rel="noopener noreferrer"><font color="#F05F22">Támogasd!</font></a></li> */}
-        <li key="m6"><Link to="/data-export">Adatok letöltése</Link></li>
+        <li key="m5"><Link to="/data-export">Adatok letöltése</Link></li>
       </ul>
     </div>
   );

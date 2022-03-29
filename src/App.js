@@ -10,7 +10,6 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Company from './pages/Company';
 import DataExport from './pages/DataExport';
-import DataImport from './pages/DataImport';
 
 import { MapContext, HotelContext } from './context';
 import reducer, { initialState } from './reducer';
@@ -49,7 +48,6 @@ function App () {
               <Route path="/kontakt" exact component={Contact}/>
               <Route path="/kekva/:name" exact component={Company}/>
               <Route path="/data-export" exact component={DataExport}/>
-              <Route path="/data-import" exact component={DataImport}/>
             </Switch>
           </HashRouter>
         </MapContext.Provider>

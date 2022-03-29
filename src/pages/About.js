@@ -16,10 +16,12 @@ const AboutView = (props) => {
             <p>Az <i>Eltették</i> oldalon térképen mutatjuk meg a vagyonkezelő alapítványoknak kijátszott ingatlanvagyont. Mivel az ingatlanok átadásáról a Parlament akkor döntött, amikor mindenki a járvánnyal volt elfoglalva, a magyar lakosság nagy része valószínűleg nem is tudja, hogy az, ami korábban a közös vagyonunk volt, ma már egy magánjogi szereplő által tulajdonolt épület, föld, kastély, múzeum. Azaz formálisan már nem a miénk. Az ingatlanokat a vagyonjuttatásról rendelkező jogszabályokból gyűjtöttük össze, helyrajzi szám alapján.</p>
           </section>
           <section>
-           <h2>A témáról megjelent írásaink</h2>  
+           <h2>A témáról megjelent írásaink</h2>
+           <ul>
             <li><a href="https://k.blog.hu/2021/07/17/kekva" target="new">Már nem a miénk: A NER-alapítványok vagyona</a> - <i>2021.07.17.</i></li>
             <li><a href="https://k.blog.hu/2021/11/15/osszeferhetetlen_kekva-arisztokratak" target="new">Összeférhetetlen KEKVA-arisztokraták?</a> - <i>2021.11.15.</i></li>
             <li><a href="https://k.blog.hu/2021/11/24/kekva_830" target="new">Mi történik az alapítványoknak kiszervezett közvagyonnal?</a> - <i>2021.11.24.</i></li>
+            </ul>
           </section>
           <section>
            <h2>Az adatokról</h2>  
@@ -29,8 +31,8 @@ const AboutView = (props) => {
           </section>
           <section>
            <h2>Köszönet</h2>  
-            <p>Az oldal fejlesztésében részt vevő <a href="code4.hu" target="new">Code for Hungary</a> önkénteseknek, <a href="http://feren.cz/" target="new">Ferencz Miklósnak</a> (grafika).</p>
-            <p><a href="http://vercel.com/" target="new">Hosted on Vercel</a>.</p>
+            <p>Az oldal fejlesztésében részt vevő <a href="http://code4.hu" target="new">Code for Hungary</a> önkénteseknek, <a href="http://feren.cz/" target="new">Ferencz Miklósnak</a> (grafika).</p>
+            <p><a href="http://vercel.com/" target="new">Hosted on Vercel.</a></p>
           </section>
       </div>
     </Layout>
