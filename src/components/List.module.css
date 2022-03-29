@@ -10,6 +10,15 @@
   box-sizing: border-box;
 }
 
+.list a {
+  text-decoration: none;
+}
+
+.list a:hover {
+  color: #FD6BA9;
+}
+
+
 .listWrapper {
   width: 100%;
   max-width: 960px;
@@ -65,11 +74,6 @@
 .listItem a {
   color: #000;
   transition: color .2s;
-}
-
-.listItem h1:hover,
-.listItem a:hover {
-  color: #FD6BA9;
 }
 
 .closeButton {

@@ -10,7 +10,7 @@ import { displayName } from '../utils/helpers';
 const Popup = (props) => {
   const { dispatch } = React.useContext(MapContext);
   const data = props.point.properties;
-  const { id, peps, name, company, address, type, link } = data;
+  const { id, peps, name, company, address, link } = data;
 
   const close = React.useCallback(() => {
     dispatch({ type: 'SetSelectedPoint', point: null });

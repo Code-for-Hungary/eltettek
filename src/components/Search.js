@@ -56,11 +56,9 @@ function Search() {
   }, [value, dispatch]);
 
   return (
-    <div className={styles.form}>
-      <form onSubmit={onSearchCallback}>
-        <input onKeyUp={onKeyUpCallback} className={styles.input} placeholder="keress név, hely, személy szerint"/>
-      </form>
-    </div>
+    <form onSubmit={onSearchCallback} className={styles.form}>
+      <input onKeyUp={onKeyUpCallback} className={styles.input} placeholder="keress név, hely, személy szerint"/>
+    </form>
   );
 }
 

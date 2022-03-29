@@ -54,6 +54,7 @@ export function getHotels(csvRowsAsObjects) {
         peps: cleanAllPeps(peps),
         date: csvRow['date'],
         details: csvRow['details'],
+        news: csvRow['news'],
         imageUrl: csvRow['pic_url'],
         color: colors[csvRow['kekva_kod']]
       },

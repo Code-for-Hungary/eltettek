@@ -111,5 +111,16 @@
 }
 
 .searchbutton {
-  right: 40px;
+  padding: 10px;
+  right: 30px;
 }
+
+.searchWrapper {
+  width: 260px;
+  position: absolute;
+  top: 50%;
+  right: 80px;
+  transform: translateY(-50%);
+}
+
+

@@ -112,7 +112,7 @@ const Hotel = (props) => {
             )}
             {details !== '' && (
               <div className={styles.hotelRow}>
-                <p><span>HRSZ:</span><br/>{details}</p>
+                <span>HRSZ:</span><p>{details}</p>
               </div>
             )}
             {link !== '' && (
@@ -122,7 +122,7 @@ const Hotel = (props) => {
             )}
             {date !== '' && (
               <div className={styles.hotelRow}>
-                <p>Adatok frissítve: <span>{date}</span></p>
+                <span>Adatok frissítve:</span> <p>{date}</p>
               </div>
             )}
             <div className={styles.back} onClick={goBack}>

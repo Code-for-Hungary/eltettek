@@ -86,15 +86,17 @@ const Company = (props) => {
               <div className={styles.hotelRow}>
                 <ul>
                   {relatedHotels.map((hotel, key) => {
-                    const {id, name, type, address, date, details } = hotel.properties;
+                    const {id, name, type, address, date, news } = hotel.properties;
                     
                     return (
-                      <li key={key} className={styles.pep}>
-                        <p>
-                          <Link to={`/ingatlan/${id}`}>{name}</Link>
-                          {`${type ? type : ''} ${address ? `– ${address}` : ''} ${date ? `- Adat frissítve: ${date}` : ''}`}
-                        </p>
-                       </li>
+                      <li key={key} className={styles.hotelItem}>
+                        <Link to={`/ingatlan/${id}`}>{name}</Link>
+                          <p>{`${type ? ` ${type}` : ''} ${address ? `– ${address}` : ''}`}</p>
+                        {date && <p>Adat frissítve: {date}</p>}
+                        {news && 
+                          <a href={news} target="new">Kapcsolódó információ</a>
+                       }
+                      </li>
                     )
                   })}
                 </ul>
