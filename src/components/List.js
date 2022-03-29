@@ -59,7 +59,7 @@ function List() {
         ))}
 
         {list.length === 0 && (
-          <p>Adatbázisunkban nincsen megfelelő szállás- vagy vendéglátóhely. Ha tudsz egy politikaközeli helyet, <a href="https://docs.google.com/forms/d/e/1FAIpQLSdi6uNP-ML46outzCbOifdwKefAaB1x_j9eXMzeTJYGB5NEnA/viewform">küldd el nekünk
+          <p>Adatbázisunkban nincsen a keresésnek megfelelő hely. Ha valami hiányzik, <a href="mailto:info@k-monitor.hu?subject=Eltették">írd meg nekünk
           </a>!</p>
         )}
       </div>
