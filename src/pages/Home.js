@@ -7,12 +7,21 @@ const AboutView = (props) => {
   return (
     <Layout history={props.history}>
       <div className={styles.about}>
-        <h2>Nem kérték, nem indokolták, csak eltették.</h2>
-        <p><b>Interaktív térképen mutatjuk be a koronavírus-járvány leple alatt véghez vitt, perverz privatizációs hullám eredményét</b>, a 2021. évi IX. törvényben létrehozott közfeladatot ellátó közérdekű vagyonkezelő alapítványoknak juttatott ingatlanvagyont. A választási vereség fenyegetése miatt létrehozott alapítványok (“KEKVÁ-k”) magánjogi szereplőként névleg a mindenkori kormánytól függetlenül látnak el kulturális-oktatási közfeladatokat, ehhez pedig pénzbeli vagyonjuttatást, részvénycsomagot és összesen sok ezer milliárd forint értékű ingatlanvagyont is kaptak ingyenesen a magyar államtól.</p>
-        <p>Ez a folyamat azért problémás, mert <b>a puccsszerű átszervezés indokaként megnevezett függetlenség és hosszú távú stabilitás a valóságban politikai bebetonozást takar</b>. Az alapítványok kuratóriumába tucatszám ültetett be az alapító magyar állam kormánytagokat és képviselőket, akik innentől a mindenkori kormányok számára leválthatatlanul irányítják a rájuk bízott intézményeket és gazdálkodnak a kapott vagyonnal. Ez jól fizető pozíciók mellett politikai ellensúlyszerepet is jelent, hiszen a megkerülhetetlen egyetemfenntartó kuratóriumokkal egy más színű kormánynak is együtt kell működnie. Figyelemre méltó az is, hogy a KEKVÁ-k tisztségviselői esetében gyakorlatilag semmilyen összeférhetetlenségi szabály nem érvényesül, ezzel pedig sérül hatalommegosztás Alaptörvényben rögzített elve. Amióta a gyakorlatban is működnek az alapítványok, a bennük vezető pozíciót betöltő képviselők dokumentáltan megszavaztak állami támogatást is a saját alapítványaiknak.</p>
-        <p>A következőkben térképen mutatjuk meg a vagyonkezelő alapítványoknak kijátszott ingatlanvagyont.</p>
+        <h2>Már nem a miénk: eltették a közvagyont</h2>
+        <p>Sokak figyelmét elkerülhette, hogy <b>a járvány leple alatt ezer milliárd forint értékű állami vagyon került át ingyenesen a kormánypárthoz kötődő alapítványokhoz</b>. <a href="csillag">*</a> Egyetemek, földek, kastélyok, üdülők, kollégiumok, sportpályák, irodaházak váltak köztulajdonból egy magánjogi szereplő tulajdonává a Parlament kétharmados döntései nyomán.</p>
+        <p>Az alapítványok vezetőit a jelenlegi kormány nevezte ki, de a kurátorokat egy későbbi kormány már nem tudja leváltani. A puccsszerű vagyonkiszervezés valódi célja nem a kulturális-oktatási javak hatékonyabb kezelése, az intézmények függetlensége és stabilitása volt, hanem a jelenlegi politikai elit bebetonozása egy esetleges választási vereség esetére.</p>
+        <p>Interaktív térképen mutatjuk be az alapítványi tulajdonba került ingatlanvagyont.</p>
         <br />
         <Link to="/terkep" className={styles.link}>Tovább a térképhez</Link>
+        <br />
+          <p><h id="csillag">* A kuratóriumok élére többek közt olyan személyek kerültek, mint
+          <li><a href="https://adatbazis.k-monitor.hu/adatbazis/cimkek/csanyi-sandor" target="new">Csányi Sándor</a> - a Magyar Agrár- és Élettudományi Egyetemért Alapítvány kuratóriumi elnöke</li>
+          <li>a href="https://adatbazis.k-monitor.hu/adatbazis/cimkek/lazar-janos" target="new">Lázár János</a> - a Jövő Nemzedék Földje Alapítvány kuratóriumi elnöke</li>
+          <li>a href="https://adatbazis.k-monitor.hu/adatbazis/cimkek/varga-judit" target="new">Varga Judit</a> - az Universitas Miskolcinensis Alapítvány kuratóriumi elnöke</li>
+          <li>a href="https://adatbazis.k-monitor.hu/adatbazis/cimkek/demeter-szilard" target="new">Demeter Szilárd</a> - a Magyar Kultúráért Alapítvány kuratóriumi elnöke</li>
+          <li>a href="https://adatbazis.k-monitor.hu/adatbazis/cimkek/varga-mihaly" target="new">Varga Mihály</a> - a Rudolf Kalman Óbudai Egyetemért Alapítvány kuratóriumi elnöke</li>
+          <li>a href="https://adatbazis.k-monitor.hu/adatbazis/cimkek/orban-balazs" target="new">Orbán Balázs</a> - Mathias Corvinus Collegium Alapítvány kuratóriumi elnöke</li>
+
       </div>
     </Layout>
   );
