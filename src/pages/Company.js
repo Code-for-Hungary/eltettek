@@ -94,8 +94,7 @@ const Company = (props) => {
                           <Link to={`/ingatlan/${id}`}>{name}</Link>
                           {`${type ? type : ''} ${address ? `– ${address}` : ''} ${date ? `- Adat frissítve: ${date}` : ''}`}
                         </p>
-                        {details && <p><span>Kapcsolódó információ:</span> {details}</p>}
-                      </li>
+                       </li>
                     )
                   })}
                 </ul>
