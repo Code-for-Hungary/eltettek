@@ -9,7 +9,7 @@ import searchIcon from '../assets/search-icon.svg';
 import closeIcon from '../assets/close-icon.svg';
 import Menu from './Menu';
 
-const Header = () => {
+const Header = ({ withSearch }) => {
   const [showSearch, setShowSearch] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
 
@@ -28,17 +28,18 @@ const Header = () => {
       <div className={styles.headerWrapper}>
         <Link to="/"><img src={logo} alt="logo"/></Link>
       </div>
-      {showSearch && <div className={styles.searchWrapper}><Search/></div>}
-      {!showSearch ? (
-        <div className={`${styles.button} ${styles.searchbutton}`} onClick={() => setShowSearch(true)}>
-          <Icon img={searchIcon} size="large"/>
-        </div>
-      ) : (
-        <div className={`${styles.button} ${styles.searchbutton}`} onClick={() => setShowSearch(false)}>
-          <Icon img={closeIcon} size="large"/>
-        </div>
-      )
-      }
+      {withSearch && <>
+        {showSearch && <div className={styles.searchWrapper}><Search/></div>}
+        {!showSearch ? (
+          <div className={`${styles.button} ${styles.searchbutton}`} onClick={() => setShowSearch(true)}>
+            <Icon img={searchIcon} size="large"/>
+          </div>
+        ) : (
+          <div className={`${styles.button} ${styles.searchbutton}`} onClick={() => setShowSearch(false)}>
+            <Icon img={closeIcon} size="large"/>
+          </div>
+        )}
+      </>}
     </div>
   );
 }
