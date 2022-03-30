@@ -31,7 +31,7 @@ const AboutView = (props) => {
           </section>
           <section>
            <h2>Köszönet</h2>  
-            <p>Az oldal fejlesztésében részt vevő <a href="http://code4.hu" target="new">Code for Hungary</a> önkénteseknek, <a href="http://feren.cz/" target="new">Ferencz Miklósnak</a> (grafika).</p>
+            <p>Az oldal fejlesztésében részt vevő <a href="https://k-monitor.hu/tevekenysegek/20200401-code-for-hungary" target="new">Code for Hungary</a> önkénteseknek, <a href="http://feren.cz/" target="new">Ferencz Miklósnak</a> (grafika).</p>
             <p><a href="http://vercel.com/" target="new">Hosted on Vercel.</a></p>
           </section>
       </div>
