@@ -23,7 +23,7 @@ function _getRelatedLocations(hotels, companyName) {
 
 const Company = (props) => {
   const companyName = props.match.params.name;
-  const { hotels, categories } = useContext(HotelContext);
+  const { hotels } = useContext(HotelContext);
   const [relatedHotels, setrelatedHotels] = useState([]);
   const [current, setCurrent] = useState({});
   const [showPopup, setShowPopup] = useState(false);
@@ -45,24 +45,22 @@ const Company = (props) => {
     undefined, [relatedHotels]);
 
   const goBack = () => {
-      props.history.push('/terkep');
-    }
-  ;
+    props.history.push('/terkep');
+  };
 
   const onMarkerClickCallback = useCallback((point) => {
-    setShowPopup(true)
     setSelectedPoint(point)
+    setShowPopup(true)
   }, []);
 
 
   const markerList = useMemo(() => {
-    return categories ? relatedHotels && getMarkerList({
+    return relatedHotels ? getMarkerList({
       points: relatedHotels,
       selectedPoint: null,
-      clickCallback: onMarkerClickCallback,
-      categories
+      clickCallback: onMarkerClickCallback
     }) : []
-  }, [categories, relatedHotels, onMarkerClickCallback])
+  }, [relatedHotels, onMarkerClickCallback])
 
   return (
     <Layout history={props.history}>
@@ -95,7 +93,7 @@ const Company = (props) => {
                         {date && <p>Adat frissítve: {date}</p>}
                         {news && 
                           <a href={news} target="new">Kapcsolódó információ</a>
-                       }
+                        }
                       </li>
                     )
                   })}
@@ -108,16 +106,16 @@ const Company = (props) => {
           </div>
         </div>
         <div className={styles.map}>
-        {relatedHotels.length &&
+        {relatedHotels.length > 0  &&
           <Map ref={mapRef} className="markercluster-map" zoom={16} maxZoom={20} bounds={bounds}>
               <TileLayer
                 url='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
                 attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='https://carto.com/attributions'>CARTO</a>"
               />
-                {markerList}
-            </Map>}
+              {markerList}
+          </Map>}
+          {showPopup && (<SimplePopup point={selectedPoint} close={() => setShowPopup(false)} /> )}
         </div>
-        {showPopup && (<SimplePopup point={selectedPoint} close={() => setShowPopup(false)} /> )}
       </div>
     </div>
     </Layout>

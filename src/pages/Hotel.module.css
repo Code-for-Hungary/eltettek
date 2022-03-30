@@ -8,7 +8,6 @@
   font-size: 28px;
 }
 
-
 .hotelWrapper {
   display: flex;
   justify-content: space-between;
@@ -32,6 +31,7 @@
 }
 
 .map {
+  position: relative;
   width: 50%;
   height: calc(100vh - 200px);
 }

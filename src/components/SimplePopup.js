@@ -4,18 +4,18 @@ import styles from './Popup.module.css';
 import Icon from './Icon';
 import closeIcon from '../assets/close-icon.svg';
 
-const Popup = ({ point, close }) => {
+const SimplePopup = ({ point, close }) => {
   const data = point.properties;
-  const { id, name, address, link } = data;
+  const { id, name, address } = data;
 
   return (
-    <div className={styles.popup}>
+    <div className={`${styles.popup} ${styles.simple}`}>
       <div className={styles.popupInner}>
         <div className={styles.close} onClick={() => close()}>
           <Icon img={closeIcon} size="large"/>
         </div>
         <>
-          <h1>{name}</h1>
+          {name && <h1>{name}</h1>}
           <div className={styles.popupInfo}>
             <div>
               <span>Cím</span>
@@ -23,11 +23,6 @@ const Popup = ({ point, close }) => {
                 <p>{address}</p>
               </div>
             </div>
-            {!!link && (<div className={styles.popupRow}>
-              <a href={link} target="_blank" rel="noopener noreferrer">
-                Kapcsolódó cikk
-              </a>
-            </div>)}
           </div>
           <Link to={`/ingatlan/${id}`} className={styles.moreButton}>Részletek</Link>
         </>
@@ -36,4 +31,4 @@ const Popup = ({ point, close }) => {
   );
 };
 
-export default Popup;
+export default SimplePopup;
