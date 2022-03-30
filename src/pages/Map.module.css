@@ -36,6 +36,12 @@
   left: 10px;
 }
 
+@media (max-width: 600px) {
+  .filterButton {
+    display: none;
+  }
+}
+
 .filterButton.filterOn {
   border-color: #3430FC;
   background-color: #3430fc36;

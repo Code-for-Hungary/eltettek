@@ -31,12 +31,7 @@
 
 @media (max-width: 480px) {
   .header {
-    justify-content: flex-end;
-  }
-
-  .headerWrapper,
-  .small .headerWrapper {
-    justify-content: flex-end;
+    justify-content: center;
   }
 
   .headerWrapper {
@@ -123,4 +118,14 @@
   transform: translateY(-50%);
 }
 
+@media (max-width: 480px) {
+  .menubutton, .close {
+    left: 20px;
+  }
+
+  .searchWrapper,
+  .searchbutton {
+    display: none;
+  }
+}
 
