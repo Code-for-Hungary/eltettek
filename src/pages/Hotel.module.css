@@ -5,6 +5,9 @@
 }
 
 .hotel h1 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 700;
+  font-style: italic;
   font-size: 28px;
 }
 

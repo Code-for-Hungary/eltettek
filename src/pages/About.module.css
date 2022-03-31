@@ -20,7 +20,9 @@
 .about h1,
 .about h2 {
     font-size: 24px;
-    font-family: 'IBM Plex Mono', sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 700;
+    font-style: italic;
 }
 
 .about p,
@@ -55,10 +57,11 @@
     border-radius: 4px;
     color: #fff;
     font-size: 18px;
-    font-weight: 600;
     text-decoration: none;
     text-align: center;
     font-family: 'IBM Plex Mono', sans-serif;
+    font-weight: 600;
+    font-style: italic;
 }
 
 .about .link:hover {

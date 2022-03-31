@@ -29,7 +29,7 @@ function MapComponent(props) {
         attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='https://carto.com/attributions'>CARTO</a>"
       />
       {withClusters ? (
-        <MarkerClusterGroup maxClusterRadius={6} zoomToBoundsOnClick={true} showCoverageOnHover={false} iconCreateFunction={createClusterCustomIcon}>
+        <MarkerClusterGroup maxClusterRadius={12} zoomToBoundsOnClick={true} showCoverageOnHover={false} iconCreateFunction={createClusterCustomIcon}>
           {markers}
         </MarkerClusterGroup>
       ) : 
