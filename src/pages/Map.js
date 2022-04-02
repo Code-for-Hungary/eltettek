@@ -118,13 +118,19 @@ function MapPage(props) {
             <div className={`${styles.extraButton} ${styles.listButton}`} onClick={openLocationListCallback}>
               <Icon img={listIcon} size="small"/>
             </div>
-            <div className={`${styles.extraButton} ${styles.filterButton} ${isFilterOn ? styles.filterOn : ''}`}
+            <div 
+              className={
+                `${styles.extraButton}
+                ${styles.filterButton}
+                ${isFilterOn ? styles.filterOn : ''}
+                ${showFilters ? styles.open : ''}
+              `}
               onClick={() => setShowFilters((prevState) => !prevState)}>
               <Icon img={filterIcon} size="small"/>
             </div>
           </div>
+          {showPopup && (<Popup point={selectedPoint}/>)}
         </div>
-        {showPopup && (<Popup point={selectedPoint}/>)}
       </div>
       {showList && <List/>}
     </Layout>

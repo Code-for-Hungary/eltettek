@@ -1,6 +1,6 @@
 .hotel {
   position: relative;
-  top: 100px;
+  top: 80px;
   padding: 40px;
 }
 
@@ -9,6 +9,7 @@
   font-weight: 700;
   font-style: italic;
   font-size: 28px;
+  margin-top: 0;
 }
 
 .hotelWrapper {
@@ -20,9 +21,12 @@
   margin-bottom: 10px;
 }
 
-
 .info {
   width: 36%;
+}
+
+.hotel p {
+  line-height: 1.7;
 }
 
 .imgWrapper {
@@ -48,16 +52,15 @@
 }
 
 .hotelRow p {
-  line-height: 1.3;
   margin-left: 10px;
 }
 
-.hotel a {
+.hotel .info a {
   color: #3430FC;
   text-decoration: none;
 }
 
-.hotel a:hover {
+.hotel .info a:hover {
   color: #FD6BA9;
 }
 
@@ -103,6 +106,7 @@
   }
 
   .info {
+    order: 1;
     width: 100%;
     margin-bottom: 20px;
   }
@@ -110,6 +114,7 @@
   .map {
     width: 100%;
     height: 240px;
+    margin-bottom: 20px;
   }
 }
 

@@ -13,16 +13,21 @@ const locateOptions = {
 };
 
 function MapComponent(props) {
-  const { mapRef, markers, center, onChange, withClusters, withLocate, locationRequired } = props;
+  const { mapRef, zoom, bounds, markers, center, onChange, withClusters, withLocate, locationRequired } = props;
+  const mapProps = {
+    ...({bounds}),
+    ...({center})
+  }
 
   return (
-    <Map ref={mapRef}
+    <Map
+      ref={mapRef || null}
       className="markercluster-map"
-      center={center}
-      zoom={13}
+      zoom={zoom || 13}
       maxZoom={19}
       onZoomEnd={onChange}
       onMoveEnd={onChange}
+      {...mapProps}
     >
       <TileLayer
         url='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'

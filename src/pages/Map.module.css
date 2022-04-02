@@ -42,8 +42,11 @@
   }
 }
 
-.filterButton.filterOn {
+.filterButton.open {
   border-color: #3430FC;
+}
+
+.filterButton.filterOn {
   background-color: #3430fc36;
 }
 

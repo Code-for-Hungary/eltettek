@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import Search from './Search';
 import styles from './Header.module.css';
@@ -8,10 +8,19 @@ import listIcon from '../assets/menu-icon.svg';
 import searchIcon from '../assets/search-icon.svg';
 import closeIcon from '../assets/close-icon.svg';
 import Menu from './Menu';
+import { MapContext } from '../context';
+
 
 const Header = ({ withSearch }) => {
+  const { dispatch } = useContext(MapContext);
   const [showSearch, setShowSearch] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+
+
+  const onSearchClose = useCallback(() => {
+    setShowSearch(false);
+    dispatch({ type: 'ToggleList', showList: false });
+  }, [dispatch])
 
   return (
     <div className={styles.header}>
@@ -35,7 +44,7 @@ const Header = ({ withSearch }) => {
             <Icon img={searchIcon} size="large"/>
           </div>
         ) : (
-          <div className={`${styles.button} ${styles.searchbutton}`} onClick={() => setShowSearch(false)}>
+          <div className={`${styles.button} ${styles.searchbutton}`} onClick={onSearchClose}>
             <Icon img={closeIcon} size="large"/>
           </div>
         )}

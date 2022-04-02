@@ -6,7 +6,7 @@
   min-height: calc(100vh - 80px);
   padding: 20px;
   background: #fff;
-  z-index: 2;
+  z-index: 100000;
   box-sizing: border-box;
 }
 
@@ -17,7 +17,6 @@
 .list a:hover {
   color: #FD6BA9;
 }
-
 
 .listWrapper {
   width: 100%;
@@ -83,14 +82,10 @@
   cursor: pointer;
 }
 
-
 @media (max-width: 480px) {
   .listItemCol {
     width: 50%;
     margin-right: 0;
   }
-
-  .listItem h1 {
-    margin-bottom: 0;
-  }
 }
+

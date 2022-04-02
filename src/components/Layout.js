@@ -3,11 +3,10 @@ import Header from '../components/Header.js';
 
 const Layout = (props) => {
   return (
-    <>
+    <div>
       <Header withSearch={props.withSearch} history={props.history}/>
-      {/* <Menu/> */}
       {props.children}
-    </>
+    </div>
   );
 };
 

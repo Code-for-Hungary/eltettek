@@ -1,12 +1,12 @@
 import React, {createRef, useState, useEffect, useCallback, useContext, useMemo} from 'react';
 import {Link} from "react-router-dom";
 import Leaflet from "leaflet";
-import {Map, TileLayer} from 'react-leaflet';
 import {HotelContext} from '../context';
 import {getMarkerList} from '../leaflet-helper.js';
 import SimplePopup from '../components/SimplePopup';
 import Layout from '../components/Layout';
 import Icon from '../components/Icon';
+import MapComponent from '../components/MapComponent';
 
 import styles from './Hotel.module.css';
 import arrowIcon from '../assets/arrow-icon.svg';
@@ -16,15 +16,30 @@ import arrowIcon from '../assets/arrow-icon.svg';
  * @param {string} personName
  * @returns {Hotel[]}
  */
-function _getRelatedLocations(hotels, companyName) {
-  return hotels.filter(
-    hotel => hotel.properties.company.name === companyName);
+function getRelatedLocations(hotels, companyName) {
+  return hotels
+    .filter(hotel => (
+      hotel.properties.company.name === companyName &&
+      hotel.geometry.coordinates.length > 0
+    ))
+    .sort((hotel1, hotel2) => {
+      const name1 = hotel1.properties.name;
+      const name2 = hotel2.properties.name;
+
+      return  name1.localeCompare(name2);
+    })
+    .sort((hotel1, hotel2) => {
+      const name1 = hotel1.properties.name;
+      const name2 = hotel2.properties.name;
+
+      return (!name1 || !name2) ? -1 : 1;
+    });
 }
 
 const Company = (props) => {
   const companyName = props.match.params.name;
   const { hotels } = useContext(HotelContext);
-  const [relatedHotels, setrelatedHotels] = useState([]);
+  const [relatedHotels, setRelatedHotels] = useState([]);
   const [current, setCurrent] = useState({});
   const [showPopup, setShowPopup] = useState(false);
   const [selectedPoint, setSelectedPoint] = useState(null);
@@ -32,8 +47,8 @@ const Company = (props) => {
 
   useEffect(() => {
     if (hotels && !relatedHotels.length) {
-      const related = _getRelatedLocations(hotels, companyName);
-      setrelatedHotels(related.filter(hotel => hotel.geometry.coordinates.length > 0));
+      const related = getRelatedLocations(hotels, companyName);
+      setRelatedHotels(related);
       setCurrent(related[0]);
     }
   }, [hotels, relatedHotels, companyName, props.id])
@@ -88,8 +103,8 @@ const Company = (props) => {
                     
                     return (
                       <li key={key} className={styles.hotelItem}>
-                        <Link to={`/ingatlan/${id}`}>{name}</Link>
-                          <p>{`${type ? ` ${type}` : ''} ${address ? `– ${address}` : ''}`}</p>
+                        <Link to={`/ingatlan/${id}`}>{name || type}</Link>
+                          <p>{`${name && type ? ` ${type} -` : ''} ${address}`}</p>
                         {date && <p>Adat frissítve: {date}</p>}
                         {news && 
                           <a href={news} target="new">Kapcsolódó információ</a>
@@ -107,13 +122,13 @@ const Company = (props) => {
         </div>
         <div className={styles.map}>
         {relatedHotels.length > 0  &&
-          <Map ref={mapRef} className="markercluster-map" zoom={16} maxZoom={20} bounds={bounds}>
-              <TileLayer
-                url='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
-                attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='https://carto.com/attributions'>CARTO</a>"
-              />
-              {markerList}
-          </Map>}
+            <MapComponent
+              mapRef={mapRef}
+              markers={markerList}
+              bounds={bounds}
+              zoom={16}
+              withClusters
+            />}
           {showPopup && (<SimplePopup point={selectedPoint} close={() => setShowPopup(false)} /> )}
         </div>
       </div>
