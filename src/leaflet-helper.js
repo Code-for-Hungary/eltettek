@@ -6,8 +6,6 @@ import styles from "./pages/Map.module.css";
 import defaultMarker from './assets/markers/pink1.svg';
 
 export function getIcon(iconUrl = '') {
-  console.log('url',iconUrl );
-  
   return Leaflet.icon({
     iconUrl: iconUrl || defaultMarker,
     shadowUrl: iconShadow,

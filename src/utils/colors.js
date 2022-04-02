@@ -5,7 +5,10 @@ const {
   Blue2,
   Blue3,
   Blue4,
-  Brown,
+  Blue5,
+  Blue6,
+  Brown1,
+  Brown2,
   Green1,
   Green2,
   Green3,
@@ -13,6 +16,7 @@ const {
   Green5,
   Green6,
   Green7,
+  Green8,
   Grey1,
   Grey2,
   Orange1,
@@ -23,9 +27,11 @@ const {
   Purple1,
   Purple2,
   Purple3,
-  Red,
+  Red1,
+  Red2,
   Yellow1,
   Yellow2,
+  Yellow3,
 } = markers;
 
 export const colors = {
@@ -55,7 +61,7 @@ export const colors = {
   },
   k007: {
     code: '#e84549',
-    icon: Red
+    icon: Red1
   },
   k008: {
     code: '#ef824c',
@@ -115,7 +121,7 @@ export const colors = {
   },
   k022: {
     code: '#9b9c76',
-    icon: Brown
+    icon: Brown1
   },
   k023: {
     code: '#91A6FF',
@@ -128,5 +134,29 @@ export const colors = {
   k025: {
     code: '#33658A',
     icon: Blue4
+  },
+  k026: {
+    code: '#091E05',
+    icon: Green8
+  },
+  k027: {
+    code: '#FFFD77',
+    icon: Yellow3
+  },
+  k028: {
+    code: '#d43550',
+    icon: Red2
+  },
+  k029: {
+    code: '#453823',
+    icon: Brown2
+  },
+  k030: {
+    code: '#1A1B25',
+    icon: Blue5
+  },
+  k031: {
+    code: '#A8F9FF',
+    icon: Blue6
   },
 }

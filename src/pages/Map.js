@@ -45,7 +45,7 @@ function MapPage(props) {
   const [showFilters, setShowFilters] = useState(false);
 
   const calcPoints = useCallback(() => {
-    if (mapRef.current && pointsToShow.length > 0) {
+    if (mapRef.current) {
     let mapBounds = mapRef.current.leafletElement.getBounds();
     const points = showPoints(pointsToShow, mapBounds);
     setVisiblePoints(points);
