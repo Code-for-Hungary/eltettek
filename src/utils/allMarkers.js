@@ -24,6 +24,7 @@ import Pink2 from '../assets/markers/pink2.svg';
 import Purple1 from '../assets/markers/purple1.svg';
 import Purple2 from '../assets/markers/purple2.svg';
 import Purple3 from '../assets/markers/purple3.svg';
+import Purple4 from '../assets/markers/purple4.svg';
 import Red1 from '../assets/markers/red1.svg';
 import Red2 from '../assets/markers/red2.svg';
 import Yellow1 from '../assets/markers/yellow1.svg';
@@ -57,6 +58,7 @@ const markers =  {
     Purple1,
     Purple2,
     Purple3,
+    Purple4,
     Red1,
     Red2,
     Yellow1,

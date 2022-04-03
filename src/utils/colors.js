@@ -27,6 +27,7 @@ const {
   Purple1,
   Purple2,
   Purple3,
+  Purple4,
   Red1,
   Red2,
   Yellow1,
@@ -136,27 +137,31 @@ export const colors = {
     icon: Blue4
   },
   k026: {
-    code: '#091E05',
+    code: '#1f5714',
     icon: Green8
   },
   k027: {
-    code: '#FFFD77',
+    code: '#eadf5b',
     icon: Yellow3
   },
   k028: {
+    code: '#434a8b',
+    icon: Blue5
+  },
+  k029: {
+    code: '#50c5ce',
+    icon: Blue6
+  },
+  k030: {
+    code: '#cf6002',
+    icon: Brown2
+  },
+  k031: {
     code: '#d43550',
     icon: Red2
   },
-  k029: {
-    code: '#453823',
-    icon: Brown2
-  },
-  k030: {
-    code: '#1A1B25',
-    icon: Blue5
-  },
-  k031: {
-    code: '#A8F9FF',
-    icon: Blue6
-  },
+  k032: {
+    code: '#c0628e',
+    icon: Purple4
+  }
 }
