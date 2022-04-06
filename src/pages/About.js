@@ -21,12 +21,13 @@ const AboutView = (props) => {
             <li><a href="https://k.blog.hu/2021/07/17/kekva" target="new">Már nem a miénk: A NER-alapítványok vagyona</a> - <i>2021.07.17.</i></li>
             <li><a href="https://k.blog.hu/2021/11/15/osszeferhetetlen_kekva-arisztokratak" target="new">Összeférhetetlen KEKVA-arisztokraták?</a> - <i>2021.11.15.</i></li>
             <li><a href="https://k.blog.hu/2021/11/24/kekva_830" target="new">Mi történik az alapítványoknak kiszervezett közvagyonnal?</a> - <i>2021.11.24.</i></li>
+            <li><a href="https://k.blog.hu/2022/03/31/eltettek_terkepen_az_alapitvanyoknak_atadott_kozvagyon_383" target="new">Eltették: térképen az alapítványoknak átadott közvagyon</a> - <i>2022.03.31.</i></li>
             </ul>
           </section>
           <section>
             <h2>Az adatokról</h2>  
             <p>Az ingatlanok és a hozzájuk tartozó adatok elsődleges forrása a KEKVÁkat létrehozó törvények, amelyek mellékletei tartalmazzák az átadásra kerülő állami tulajdonú ingatlanok felsorolását. A legtöbb esetben helyrajziszámot tartalmazó felsorolást a <a href="https://mepar.mvh.allamkincstar.gov.hu/" target="new">MePAR</a> segítségével alakítottuk földrajzi koordinátákká. Az adatbázist kiegészítettük továbbá az alapítványok kuratóriumi tagságával. Az ingatlanok közértetőbbé tétele érdekében - ahol arra lehetőség volt - hétköznapi elnevezéssel, képpel illetve kapcsolódó sajtócikkekkel láttuk el.</p>
-            <p>A térképen megjelenített teljes adatbázis 23 közérdekű vagyonkezelő alapítvány, több mint 1400 inaglanját tartalmazza. * A felsőoktatási épületeken túl ezek között akad számos beépítetlen terület, gazdasági épület, de sok esetben nemzetgazdaságilag és társadalmilag értékes kutatóközpont, műemlék, lakóház, üdülő is.</p>
+            <p>A térképen megjelenített teljes adatbázis <b>30 közérdekű vagyonkezelő alapítvány, közel 1500 inaglanját</b> tartalmazza. * A felsőoktatási épületeken túl ezek között akad számos beépítetlen terület, gazdasági épület, de sok esetben nemzetgazdaságilag és társadalmilag értékes kutatóközpont, műemlék, lakóház, üdülő is.</p>
             <p>Az ingatlanokat a vagyonjuttatásról rendelkező jogszabályokból gyűjtöttük össze, helyrajzi szám alapján. Emiatt a térképen <b>csak az alapítványi vagyonjuttatás egy része látható: mivel nem ingatlan, nem tüntettük fel az átadott részvénycsomagokat és készpénzt, illetve nem látszanak azok a főként határon túli ingatlanok, amelyeket cégeken (pl. MANEVI Zrt.) keresztül adtak oda alapítványoknak</b>. Szintén hiányoznak a térképről azok az ingatlanok, amelyeket a KEKVA tv. előtt juttattak bizonyos alapítványoknak (pl. <a href="https://24.hu/belfold/2020/04/01/schmidt-maria-alapitvany-budai-ingatlan-kap-ingyen-allamtol/" target="new">Közép- és Kelet-európai Történelem és Társadalom Kutatásáért Alapítvány)</a>.</p>
             <p>* <i>A mezőhegyesi ménesbirtokot működtető Jövő Nemzedék Földje Alapítvány 776, többségében mezőgazdasági művelés alatt álló ingatlanját mennyiségi korlátok miatt nem szerepeltetjük a térképen. Ezek mindegyike Mezőhegyes (Békés megye) területén fekszik.</i></p>
           </section>
@@ -34,6 +35,7 @@ const AboutView = (props) => {
             <h2>Köszönet</h2>  
             <p>Az oldal fejlesztésében részt vevő <a href="https://k-monitor.hu/tevekenysegek/20200401-code-for-hungary" target="new">Code for Hungary</a> önkénteseknek, <a href="http://feren.cz/" target="new">Ferencz Miklósnak</a> (grafika).</p>
             <p><a href="http://vercel.com/" target="new">Hosted on Vercel.</a></p>
+            <p><a href="https://github.com/Code-for-Hungary/eltettek" target="new">Forráskód a GitHubon.</a></p>
           </section>
       </div>
     </Layout>
