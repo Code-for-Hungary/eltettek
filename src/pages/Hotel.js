@@ -83,8 +83,8 @@ const Hotel = (props) => {
             </div>}
             {company && (
               <div className={styles.hotelRow}>
-                <span>Tulajdonos</span>
-                <p>{displayName('/kekva/${company.name}')} - <a href={(company)} target="_blank" rel="noopener noreferrer"><span>sajtóadatbázis</span></a></p>
+                <span>Tulajdonos</span>         
+                <p>{displayName(company)}</p>
               </div>
             )}
             {mainPep && (
