@@ -7,7 +7,7 @@ import { MapContext } from '../context';
 
 
 const ListItem = ({ item }) => {
-  const { properties: { peps, name, address} } = item || {};
+  const { properties: { peps, name, company, address} } = item || {};
 
   return (<>
     <h1>{name}</h1>
@@ -16,10 +16,9 @@ const ListItem = ({ item }) => {
       <p><b>{address}</b></p>
     </div>
     {peps.length > 0 && (
-      <div className={styles.listItemCol}>
+      <div className={styles.listItemRow}>
         <div className={styles.pepList}>
-          {peps.map((pep, key) => (
-              <p key={key}>{pep.name}</p>
+          <Link to={`/kekva/${company.name}`}>{company.name}</Link>
           ))}
         </div>
       </div>
