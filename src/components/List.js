@@ -10,7 +10,7 @@ const ListItem = ({ item }) => {
   const { properties: { peps, name, company, address} } = item || {};
 
   return (<>
-    <h1>{name}</h1>
+    <h1>{name} x</h1>
     <div className={styles.listItemRow}>
     <div className={styles.listItemCol}>
       <p><b>{address}</b></p>
@@ -18,8 +18,7 @@ const ListItem = ({ item }) => {
     {peps.length > 0 && (
       <div className={styles.listItemRow}>
         <div className={styles.pepList}>
-          <Link to={`/kekva/${company.name}`}>{company.name}</Link>
-          ))}
+            <Link to={`/kekva/${company.name}`}>{company.name}</Link>
         </div>
       </div>
     )}
