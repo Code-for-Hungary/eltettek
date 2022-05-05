@@ -82,7 +82,7 @@ const Company = (props) => {
     <div className={[styles.hotel, 'hotel'].join(' ')}>
       <div className={styles.hotelWrapper}>
         <div className={styles.info}>
-          <h1>{companyName}</h1>
+          <h1>{companyName} x <Link to={`/kekva/${company.name}`}>{company.name}</Link></h1>
           {imageUrl && 
             <div className={styles.hotelRow}>
               <div className={styles.imgWrapper}>
